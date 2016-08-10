@@ -53,7 +53,7 @@ class HomeController extends Controller
            //Tracking::create(['ticket_number', 000]);
 
         $lastRecord = Tracking::latest('id')->where('ticket_status', 'active')->first();
-        //return $lastRecord;
+        return $lastRecord;
         $ticket_number = (int)$lastRecord->ticket_number;
         $ticket_number = sprintf('%03d', $ticket_number + 1);
         if($ticket_number==='101')
