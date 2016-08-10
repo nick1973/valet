@@ -49,10 +49,9 @@ class HomeController extends Controller
     public function create()
     {
         $lastRecord = Tracking::latest('id')->where('ticket_status', 'active')->first();
-        if($lastRecord==null)
-        {
+        
            Tracking::create(['ticket_number', 000]);
-        }
+
         $lastRecord = Tracking::latest('id')->where('ticket_status', 'active')->first();
         //return $lastRecord;
         $ticket_number = (int)$lastRecord->ticket_number;
