@@ -13,7 +13,7 @@ class TrackingTableSeeder extends Seeder
     public function run()
     {
         DB::table('tracking')->insert([
-            'ticket_number' => '000',
+            'ticket_number' => '0',
             'ticket_status' => 'active'
         ]);
     }
