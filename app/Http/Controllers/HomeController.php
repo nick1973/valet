@@ -74,18 +74,26 @@ class HomeController extends Controller
 //            $ticket_number = 001;
 //            //return $ticket_number;
 //        }
-        if (Tracking::where('ticket_number', $ticket_number)->orderBy('id', 'desc')->first()->exists()) {
-            // Ticket found
-            //->where('ticket_status', 'complete')
-            $ticket = Tracking::where('ticket_number', $ticket_number)->orderBy('id', 'desc')->first();
+        //dd(Tracking::where('ticket_number', $ticket_number)->orderBy('id', 'desc')->first()->exists());
+        // NO Ticket found
+        if(Tracking::where('ticket_number', $ticket_number)->orderBy('id', 'desc')->first()==null)
+        {
+            Tracking::create($input);
+            return redirect()->back()->with('status', 'Ticket Been Issued!');
+        }
+            if (Tracking::where('ticket_number', $ticket_number)->orderBy('id', 'desc')->first()->exists()) {
+                // NO Ticket found
+                $ticket = Tracking::where('ticket_number', $ticket_number)->orderBy('id', 'desc')->first();
 
                 if($ticket->ticket_status==='complete')
                 {
                     Tracking::create($input);
                     //return "Complete";
                 }
-            //return "Active";
-        }
+                //return "Active";
+            }
+
+
         return redirect()->back()->with('status', 'Ticket still active!');
     }
 
