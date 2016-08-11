@@ -33,8 +33,18 @@
                             </div>
                             <div class="form-group">
                                 <label style="color: white">Price</label>
-                                {!! Form::select('ticket_price', ['20'=>'20','0'=>'VIP-FREE','10'=>'Self drive-£10'], 'ticket_price', ['class'=>'form-control']) !!}
+                                <select name="ticket_price" class="form-control" id="ticket_price">
+                                        <option>{{ $ticket->ticket_price }}</option>
+                                        <option value="20">£20</option>
+                                        <option value="0">VIP-FREE</option>
+                                        <option value="10">Self drive-£10</option>
+
+                                </select>
                             </div>
+                            {{--<div class="form-group">--}}
+                                {{--<label style="color: white">Price</label>--}}
+                                {{--{!! Form::select('ticket_price', ['20'=>'20','0'=>'VIP-FREE','10'=>'Self drive-£10'], 'ticket_price', ['class'=>'form-control']) !!}--}}
+                            {{--</div>--}}
                             <div class="form-group">
                                 <label style="color: white">Name</label>
                                 {!! Form::text('ticket_name', null, ['class' => 'form-control']) !!}
