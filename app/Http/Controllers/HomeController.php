@@ -91,6 +91,7 @@ class HomeController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
+            'ticket_number' => 'required|max:3|min:3',
             'ticket_name' => 'required|max:255',
             'ticket_mobile' => 'required|numeric',
             'ticket_registration' => 'required',

@@ -95,6 +95,9 @@ return [
         'ticket_mobile' => [
             'max' => 'Needs to be a valid mobile number!',
         ],
+        //'ticket_number' => [
+        //'max' => 'Needs to be in 021 format!',
+    //],
     ],
 
     /*
