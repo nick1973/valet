@@ -2,6 +2,11 @@
 
 @section('content')
 <div class="container">
+    @if (session('status'))
+        <div class="alert alert-success">
+            {{ session('status') }}
+        </div>
+    @endif
     <div style="padding-bottom: 10px">
         <a class="btn btn-primary active" href="#">Active</a>
         <a class="btn btn-default pull-right" href="/history">History</a>
@@ -19,6 +24,7 @@
                             <tr>
                                 <th></th>
                                 <th>No</th>
+                                <th></th>
                                 <th>Contact</th>
                                 <th>Action</th>
                                 <th></th>
@@ -31,10 +37,14 @@
                                     <td><i style="color: green" class="fa fa-key" aria-hidden="true"></i></td>
                                 @endif
                                 <td>{{ $ticket->ticket_number }}</td>
-                                <td>@if($ticket->existing_customer=="Yes")
+                                <td>
+                                    @if($ticket->existing_customer=="Yes")
                                         <i class="fa fa-asterisk" style="color: gold" aria-hidden="true"></i>
-                                @endif
-                                    {{ $ticket->ticket_name }} {{ $ticket->ticket_mobile}}</td>
+                                    @endif
+                                </td>
+                                    <td>
+                                        {{ $ticket->ticket_name }} {{ $ticket->ticket_mobile}}
+                                    </td>
                                 <td><a href="home/{{ $ticket->id }}" class="btn btn-success btn-sm">Pull</a></td>
                                 <td><a href="home/{{ $ticket->id }}/edit" class="btn btn-default btn-sm">Edit</a></td>
                             </tr>
@@ -46,4 +56,11 @@
         </div>
     </div>
 </div>
+<script>
+    $(document).ready(function() {
+        $(".alert").fadeTo(2000, 500).slideUp(500, function () {
+            $(".alert").slideUp(500);
+        });
+    });
+</script>
 @endsection

@@ -18,6 +18,8 @@ class CreateTrackingTable extends Migration
             $table->string('ticket_price');
             $table->string('ticket_name');
             $table->string('ticket_mobile');
+            $table->string('booked_in_by');
+            $table->string('ticket_driver');
             $table->string('ticket_registration');
             $table->string('existing_customer');
             $table->string('ticket_manufacturer');

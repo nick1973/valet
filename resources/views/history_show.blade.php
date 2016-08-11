@@ -21,26 +21,15 @@
                         </div>
 
                         <div class="col-xs-6">
-                            <p style="color: white"><?php echo empty($ticket->ticket_name) ? "Field Empty!" : $ticket->ticket_name; ?></p>
-                            <p style="color: white"><?php echo empty($ticket->ticket_mobile) ? "Field Empty!" : $ticket->ticket_mobile; ?></p>
-                            <p style="color: white"><?php echo empty($ticket->ticket_registration) ? "Field Empty!" : $ticket->ticket_registration; ?></p>
-                            <p style="color: white"><?php echo empty($ticket->existing_customer) ? "No" : $ticket->existing_customer; ?></p>
-                            <p style="color: white"><?php echo empty($ticket->ticket_manufacturer) ? "Field Empty!" : $ticket->ticket_manufacturer; ?></p>
-                            <p style="color: white"><?php echo empty($ticket->ticket_model) ? "Field Empty!" : $ticket->ticket_model; ?></p>
-                            <p style="color: white"><?php echo empty($ticket->ticket_colour) ? "Field Empty!" : $ticket->ticket_colour; ?></p>
-                            <p style="color: white"><?php echo empty($ticket->ticket_notes) ? "Field Empty!" : $ticket->ticket_notes; ?></p>
-                            {!! Form::model($ticket,[
-                            'method' => 'PATCH',
-                            'route' => ['home.update', $ticket->id],
-                            'id'=>'priceForm']) !!}
-                            {{ csrf_field() }}
-                            <select name="ticket_price" class="form-control" id="ticket_price">
-                                <option>{{ $ticket->ticket_price }}</option>
-                                <option value="20">£20</option>
-                                <option value="0">VIP</option>
-                            </select>
-                            <div id="paymentMethod" class="col-xs-12"></div>
-                            </form>
+                            <p><?php echo empty($ticket->ticket_name) ? "." : "<span style='color: white'>" .$ticket->ticket_name. "</span>"; ?></p>
+                            <p><?php echo empty($ticket->ticket_mobile) ? "." : "<span style='color: white'>" .$ticket->ticket_mobile. "</span>"; ?></p>
+                            <p><?php echo empty($ticket->ticket_registration) ? "." : "<span style='color: white'>" .$ticket->ticket_registration. "</span>"; ?></p>
+                            <p><?php echo empty($ticket->existing_customer) ? "." : "<span><i class='fa fa-asterisk' style='color: gold' aria-hidden='true'></i></span>"; ?></p>
+                            <p><?php echo empty($ticket->ticket_manufacturer) ? "." : "<span style='color: white'>" .$ticket->ticket_manufacturer. "</span>"; ?></p>
+                            <p><?php echo empty($ticket->ticket_model) ? "." : "<span style='color: white'>" .$ticket->ticket_model. "</span>"; ?></p>
+                            <p><?php echo empty($ticket->ticket_colour) ? "." : "<span style='color: white'>" .$ticket->ticket_colour. "</span>"; ?></p>
+                            <p><?php echo empty($ticket->ticket_notes) ? "." : "<span style='color: white'>" .$ticket->ticket_notes. "</span>"; ?></p>
+                            <p><?php echo empty($ticket->ticket_price) ? "." : "<span style='color: white'>" .$ticket->ticket_price. "</span>"; ?></p>
                         </div>
                         <div class="col-xs-12 row" style="padding-bottom: 10px">
                             <a href="/history" class="btn btn-default pull-left">Back</a>

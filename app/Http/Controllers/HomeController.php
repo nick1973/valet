@@ -9,6 +9,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Input;
+use Illuminate\Validation\Validator;
 
 class HomeController extends Controller
 {
@@ -30,14 +31,14 @@ class HomeController extends Controller
     public function index()
     {
         $user = Auth::user();
-        $tickets = Tracking::where('ticket_status', 'active')->orderBy('ticket_number', 'asc')->get();
+        $tickets = Tracking::where('ticket_status', 'active')->where('id','!=','1')->orderBy('created_at', 'desc')->get();
         return view('home', compact('user', 'tickets'));
     }
 
     public function history()
     {
         $user = Auth::user();
-        $tickets = Tracking::where('ticket_status', 'complete')->orderBy('ticket_number', 'asc')->get();
+        $tickets = Tracking::where('ticket_status', 'complete')->orderBy('created_at', 'desc')->get();
         return view('history', compact('user', 'tickets'));
     }
 
@@ -61,10 +62,6 @@ class HomeController extends Controller
 
     public function create()
     {
-        //$lastRecord = Tracking::latest('id')->where('ticket_status', 'active')->first();
-
-           //Tracking::create(['ticket_number', 000]);
-
         $lastRecord = Tracking::latest('id')->where('ticket_status', 'active')->first();
         //return $lastRecord;
         $ticket_number = (int)$lastRecord->ticket_number;
@@ -76,8 +73,32 @@ class HomeController extends Controller
         return view('create', compact('ticket_number'));
     }
 
-    public function store(Request $request)
+    public function reallocateTicket($id)
     {
+        $old_data = Tracking::find($id);
+        $old_data->update(['ticket_status' => 'deleted']);
+        $lastRecord = Tracking::latest('id')->where('ticket_status', 'active')->first();
+        //return $lastRecord;
+        $ticket_number = (int)$lastRecord->ticket_number;
+        $ticket_number = sprintf('%03d', $ticket_number + 1);
+        if($ticket_number==='121')
+        {
+            $ticket_number = '001';
+        }
+        return view('create', compact('ticket_number', 'old_data'));
+    }
+
+    public function store(Request $request)
+    {//->withInput();
+        $this->validate($request, [
+            'ticket_name' => 'required|max:255',
+            'ticket_mobile' => 'required|numeric|size:11',
+            'ticket_registration' => 'required',
+            'booked_in_by' => 'required',
+            'ticket_driver' => 'required'
+        ]);
+
+
         $input = $request->all();
         $ticket_number = $request->input('ticket_number');
         //$update = $request->except(['_method', '_token']);
@@ -92,7 +113,7 @@ class HomeController extends Controller
         if(Tracking::where('ticket_number', $ticket_number)->orderBy('id', 'desc')->first()==null)
         {
             Tracking::create($input);
-            return redirect()->back()->with('status', 'Ticket Been Issued!');
+            return redirect('home')->with('status', 'Ticket\'s Been Issued!')->withInput();
         }
             if (Tracking::where('ticket_number', $ticket_number)->orderBy('id', 'desc')->first()->exists()) {
                 // NO Ticket found
@@ -101,11 +122,11 @@ class HomeController extends Controller
                 if($ticket->ticket_status==='complete')
                 {
                     Tracking::create($input);
-                    return redirect()->back()->with('status', 'Ticket Been Issued!');
+                    return redirect('home')->with('status', 'Ticket\'s Been Issued!')->withInput();
                 }
                 //return "Active";
             }
-        return redirect()->back()->with('status', 'Ticket still active!');
+        return redirect()->back()->with('status', 'Ticket\'s still active!')->with('ticket_number',$ticket_number)->withInput();
     }
 
     public function update(Request $request, $id)

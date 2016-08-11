@@ -92,8 +92,8 @@ return [
     */
 
     'custom' => [
-        'attribute-name' => [
-            'rule-name' => 'custom-message',
+        'ticket_mobile' => [
+            'size' => 'Needs to be a valid mobile number!',
         ],
     ],
 

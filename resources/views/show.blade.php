@@ -12,7 +12,7 @@
                             <p style="color: white">Name</p>
                             <p style="color: white">Mobile</p>
                             <p style="color: white">Registration</p>
-                            <p style="color: white">Existing Customer</p>
+                            <p style="color: white">Existing</p>
                             <p style="color: white">Manufacturer</p>
                             <p style="color: white">Model</p>
                             <p style="color: white">Colour</p>
@@ -21,14 +21,15 @@
                         </div>
 
                         <div class="col-xs-6">
-                            <p style="color: white"><?php echo empty($ticket->ticket_name) ? "Field Empty!" : $ticket->ticket_name; ?></p>
-                            <p style="color: white"><?php echo empty($ticket->ticket_mobile) ? "Field Empty!" : $ticket->ticket_mobile; ?></p>
-                            <p style="color: white"><?php echo empty($ticket->ticket_registration) ? "Field Empty!" : $ticket->ticket_registration; ?></p>
-                            <p style="color: white"><?php echo empty($ticket->existing_customer) ? "No" : $ticket->existing_customer; ?></p>
-                            <p style="color: white"><?php echo empty($ticket->ticket_manufacturer) ? "Field Empty!" : $ticket->ticket_manufacturer; ?></p>
-                            <p style="color: white"><?php echo empty($ticket->ticket_model) ? "Field Empty!" : $ticket->ticket_model; ?></p>
-                            <p style="color: white"><?php echo empty($ticket->ticket_colour) ? "Field Empty!" : $ticket->ticket_colour; ?></p>
-                            <p style="color: white"><?php echo empty($ticket->ticket_notes) ? "Field Empty!" : $ticket->ticket_notes; ?></p>
+                            <p><?php echo empty($ticket->ticket_name) ? "." : "<span style='color: white'>" .$ticket->ticket_name. "</span>"; ?></p>
+                            <p><?php echo empty($ticket->ticket_mobile) ? "." : "<span style='color: white'>" .$ticket->ticket_mobile. "</span>"; ?></p>
+                            <p><?php echo empty($ticket->ticket_registration) ? "." : "<span style='color: white'>" .$ticket->ticket_registration. "</span>"; ?></p>
+                            <p><?php echo empty($ticket->existing_customer) ? "." : "<span><i class='fa fa-asterisk' style='color: gold' aria-hidden='true'></i></span>"; ?></p>
+                            <p><?php echo empty($ticket->ticket_manufacturer) ? "." : "<span style='color: white'>" .$ticket->ticket_manufacturer. "</span>"; ?></p>
+                            <p><?php echo empty($ticket->ticket_model) ? "." : "<span style='color: white'>" .$ticket->ticket_model. "</span>"; ?></p>
+                            <p><?php echo empty($ticket->ticket_colour) ? "." : "<span style='color: white'>" .$ticket->ticket_colour. "</span>"; ?></p>
+                            <p><?php echo empty($ticket->ticket_notes) ? "." : "<span style='color: white'>" .$ticket->ticket_notes. "</span>"; ?></p>
+
                             {{--<form id="priceForm" class="form-viritical" action="/home/{{ $ticket->id }}" method="post">--}}
                                 {{--{!! Form::open(array('route' => array('home.update', $ticket->id)), []) !!}--}}
                             {!! Form::model($ticket,[
@@ -39,7 +40,8 @@
                                 <select name="ticket_price" class="form-control" id="ticket_price">
                                     <option>{{ $ticket->ticket_price }}</option>
                                     <option value="20">£20</option>
-                                    <option value="0">VIP</option>
+                                    <option value="0">VIP-FREE</option>
+                                    <option value="10">Self drive-£10</option>
                                 </select>
                                 <div id="paymentMethod" class="col-xs-12"></div>
                             </form>
@@ -69,8 +71,8 @@
             $('#paymentMethod').append("<input type='text' value='" + payment + "' name='ticket_payment' hidden />");
             $('#paymentMethod').append("<input type='text' value='complete' name='ticket_status' hidden />");
             $('#submit').empty();
+            $('#submit').append("<div class='col-xs-12'><p style='color: white'>You have chosen " + payment + " Payment</p></div>");
             $('#submit').append("<input onclick='submitted()' type='submit' value='Done' class='form-control btn-warning' />");
-
         }
     </script>
 @endsection
