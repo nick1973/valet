@@ -92,7 +92,7 @@ class HomeController extends Controller
     {
         $this->validate($request, [
             'ticket_name' => 'required|max:255',
-            'ticket_mobile' => 'required|numeric|max:12',
+            'ticket_mobile' => 'required|numeric',
             'ticket_registration' => 'required',
             'booked_in_by' => 'required',
             'ticket_driver' => 'required'

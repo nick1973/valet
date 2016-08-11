@@ -62,7 +62,7 @@
                                     @if(!empty($old_data->booked_in_by))
                                         <option>{{ $old_data->booked_in_by }}</option>
                                     @else
-                                        <option disabled selected>{{ empty(old('ticket_mobile')) ? old('ticket_mobile') : 'Booked in By' }}</option>
+                                        <option disabled selected>Booked in By</option>
                                         <option>Amy Hamilton</option>
                                         <option>Arnoldo Mota</option>
                                         <option>Brian Duggan</option>
