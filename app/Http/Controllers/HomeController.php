@@ -89,10 +89,10 @@ class HomeController extends Controller
     }
 
     public function store(Request $request)
-    {//->withInput();
+    {
         $this->validate($request, [
             'ticket_name' => 'required|max:255',
-            'ticket_mobile' => 'required|numeric|size:11',
+            'ticket_mobile' => 'required|numeric|max:12',
             'ticket_registration' => 'required',
             'booked_in_by' => 'required',
             'ticket_driver' => 'required'

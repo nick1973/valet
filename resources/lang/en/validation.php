@@ -93,7 +93,7 @@ return [
 
     'custom' => [
         'ticket_mobile' => [
-            'size' => 'Needs to be a valid mobile number!',
+            'max' => 'Needs to be a valid mobile number!',
         ],
     ],
 
