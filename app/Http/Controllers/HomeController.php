@@ -96,6 +96,7 @@ class HomeController extends Controller
             'ticket_registration' => 'required',
             'booked_in_by' => 'required',
             'ticket_driver' => 'required'
+
         ]);
 
 
