@@ -18,3 +18,5 @@ Route::get('/', function () {
 Route::auth();
 
 Route::resource('/home', 'HomeController');
+Route::get('/history', 'HomeController@history');
+Route::get('/history/{history}', 'HomeController@historyShow');

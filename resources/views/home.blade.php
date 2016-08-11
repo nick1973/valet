@@ -2,6 +2,10 @@
 
 @section('content')
 <div class="container">
+    <div style="padding-bottom: 10px">
+        <a class="btn btn-primary active" href="#">Active</a>
+        <a class="btn btn-default pull-right" href="/history">History</a>
+    </div>
     <div class="row">
         <div class="col-md-10 col-md-offset-1">
             <div class="panel panel-primary">

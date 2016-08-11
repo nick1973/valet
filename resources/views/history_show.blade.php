@@ -4,7 +4,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-10 col-md-offset-1">
-                <div class="panel panel-primary">
+                <div class="panel panel-default">
                     <div class="panel-heading">Ticket Number {{ $ticket->ticket_number }}</div>
 
                     <div class="panel-body">
@@ -29,48 +29,25 @@
                             <p style="color: white"><?php echo empty($ticket->ticket_model) ? "Field Empty!" : $ticket->ticket_model; ?></p>
                             <p style="color: white"><?php echo empty($ticket->ticket_colour) ? "Field Empty!" : $ticket->ticket_colour; ?></p>
                             <p style="color: white"><?php echo empty($ticket->ticket_notes) ? "Field Empty!" : $ticket->ticket_notes; ?></p>
-                            {{--<form id="priceForm" class="form-viritical" action="/home/{{ $ticket->id }}" method="post">--}}
-                                {{--{!! Form::open(array('route' => array('home.update', $ticket->id)), []) !!}--}}
                             {!! Form::model($ticket,[
                             'method' => 'PATCH',
                             'route' => ['home.update', $ticket->id],
                             'id'=>'priceForm']) !!}
-                                {{ csrf_field() }}
-                                <select name="ticket_price" class="form-control" id="ticket_price">
-                                    <option>{{ $ticket->ticket_price }}</option>
-                                    <option value="20">£20</option>
-                                    <option value="0">VIP</option>
-                                </select>
-                                <div id="paymentMethod" class="col-xs-12"></div>
+                            {{ csrf_field() }}
+                            <select name="ticket_price" class="form-control" id="ticket_price">
+                                <option>{{ $ticket->ticket_price }}</option>
+                                <option value="20">£20</option>
+                                <option value="0">VIP</option>
+                            </select>
+                            <div id="paymentMethod" class="col-xs-12"></div>
                             </form>
                         </div>
-                        <div class="col-xs-12 row" style="padding-bottom: 10px; padding-top: 10px">
-                            <div onclick="submitPrice('card')" class="col-xs-4"><button type="submit" class="btn btn-success">Paid Card</button></div>
-                            <div onclick="submitPrice('cash')" class="col-xs-4"><button type="submit" class="btn btn-primary">Paid Cash</button></div>
-                            <div onclick="submitPrice('free')" class="col-xs-4"><button type="submit" class="btn btn-danger">Not Paid</button></div>
-                        </div>
-                        <div id="submit" class="form-group"></div>
                         <div class="col-xs-12 row" style="padding-bottom: 10px">
-                            <a href="/home" class="btn btn-default pull-left">Back</a>
+                            <a href="/history" class="btn btn-default pull-left">Back</a>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-
-    <script>
-        function submitted(){
-            $("#priceForm").submit();
-        };
-
-        function submitPrice(payment) {
-            $('#paymentMethod').empty();
-            $('#paymentMethod').append("<input type='text' value='" + payment + "' name='ticket_payment' hidden />");
-            $('#paymentMethod').append("<input type='text' value='complete' name='ticket_status' hidden />");
-            $('#submit').empty();
-            $('#submit').append("<input onclick='submitted()' type='submit' value='Done' class='form-control btn-warning' />");
-
-        }
-    </script>
 @endsection

@@ -34,10 +34,23 @@ class HomeController extends Controller
         return view('home', compact('user', 'tickets'));
     }
 
+    public function history()
+    {
+        $user = Auth::user();
+        $tickets = Tracking::where('ticket_status', 'complete')->orderBy('ticket_number', 'asc')->get();
+        return view('history', compact('user', 'tickets'));
+    }
+
     public function show($id)
     {
         $ticket = Tracking::find($id);
         return view('show', compact('ticket'));
+    }
+
+    public function historyShow($id)
+    {
+        $ticket = Tracking::find($id);
+        return view('history_show', compact('ticket'));
     }
 
     public function edit($id)
@@ -56,7 +69,7 @@ class HomeController extends Controller
         //return $lastRecord;
         $ticket_number = (int)$lastRecord->ticket_number;
         $ticket_number = sprintf('%03d', $ticket_number + 1);
-        if($ticket_number==='101')
+        if($ticket_number==='121')
         {
             $ticket_number = '001';
         }
@@ -88,12 +101,10 @@ class HomeController extends Controller
                 if($ticket->ticket_status==='complete')
                 {
                     Tracking::create($input);
-                    //return "Complete";
+                    return redirect()->back()->with('status', 'Ticket Been Issued!');
                 }
                 //return "Active";
             }
-
-
         return redirect()->back()->with('status', 'Ticket still active!');
     }
 
