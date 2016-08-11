@@ -55,6 +55,7 @@
                             </div>
 
                         <div class="form-group">
+                            <label style="color: white">Booked in by</label>
                             <select name="booked_in_by" class="form-control" id="ticket_price">
                                 @if(!empty($ticket->booked_in_by))
                                     <option>{{ $ticket->booked_in_by }}</option>
@@ -75,6 +76,7 @@
                         </div>
 
                         <div class="form-group">
+                            <label style="color: white">Driver</label>
                             <select name="ticket_driver" class="form-control" id="ticket_price">
                                 @if(!empty($ticket->ticket_driver))
                                     <option>{{ $ticket->ticket_driver }}</option>

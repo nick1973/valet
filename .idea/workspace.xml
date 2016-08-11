@@ -81,13 +81,16 @@
       <file leaf-file-name="edit.blade.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/resources/views/edit.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="527">
-              <caret line="38" column="75" selection-start-line="38" selection-start-column="75" selection-end-line="38" selection-end-column="75" />
+            <state relative-caret-position="372">
+              <caret line="75" column="30" selection-start-line="75" selection-start-column="30" selection-end-line="75" selection-end-column="30" />
               <folding>
+                <element signature="e#1566#1586#0#HTML" expanded="true" />
                 <element signature="e#1835#1855#0#HTML" expanded="true" />
-                <marker date="1470932001795" expanded="true" signature="347:532" ph="..." />
-                <marker date="1470932001795" expanded="true" signature="360:530" ph="..." />
-                <marker date="1470932001795" expanded="true" signature="369:529" ph="..." />
+                <element signature="e#3336#3356#0#HTML" expanded="true" />
+                <element signature="e#4609#4629#0#HTML" expanded="true" />
+                <marker date="1470932187981" expanded="true" signature="347:532" ph="..." />
+                <marker date="1470932187981" expanded="true" signature="360:530" ph="..." />
+                <marker date="1470932187981" expanded="true" signature="369:529" ph="..." />
               </folding>
             </state>
           </provider>
@@ -457,7 +460,7 @@
       <workItem from="1470816567145" duration="14204000" />
       <workItem from="1470835004124" duration="2043000" />
       <workItem from="1470838571003" duration="7557000" />
-      <workItem from="1470902877479" duration="24485000" />
+      <workItem from="1470902877479" duration="24666000" />
     </task>
     <task id="LOCAL-00001" summary="CTMVALET">
       <created>1470824544963</created>
@@ -620,11 +623,18 @@
       <option name="project" value="LOCAL" />
       <updated>1470929968961</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="CTMVALET">
+      <created>1470932024098</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1470932024098</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="91808000" />
+    <option name="totallyTimeSpent" value="91989000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -721,10 +731,13 @@
         <state relative-caret-position="2387">
           <caret line="77" column="12" selection-start-line="77" selection-start-column="4" selection-end-line="92" selection-end-column="13" />
           <folding>
+            <element signature="e#1566#1586#0#HTML" expanded="true" />
             <element signature="e#1835#1855#0#HTML" expanded="true" />
-            <marker date="1470932001795" expanded="true" signature="347:532" ph="..." />
-            <marker date="1470932001795" expanded="true" signature="360:530" ph="..." />
-            <marker date="1470932001795" expanded="true" signature="369:529" ph="..." />
+            <element signature="e#3336#3356#0#HTML" expanded="true" />
+            <element signature="e#4609#4629#0#HTML" expanded="true" />
+            <marker date="1470932187981" expanded="true" signature="347:532" ph="..." />
+            <marker date="1470932187981" expanded="true" signature="360:530" ph="..." />
+            <marker date="1470932187981" expanded="true" signature="369:529" ph="..." />
           </folding>
         </state>
       </provider>
@@ -799,10 +812,13 @@
         <state relative-caret-position="2387">
           <caret line="77" column="12" selection-start-line="77" selection-start-column="4" selection-end-line="92" selection-end-column="13" />
           <folding>
+            <element signature="e#1566#1586#0#HTML" expanded="true" />
             <element signature="e#1835#1855#0#HTML" expanded="true" />
-            <marker date="1470932001795" expanded="true" signature="347:532" ph="..." />
-            <marker date="1470932001795" expanded="true" signature="360:530" ph="..." />
-            <marker date="1470932001795" expanded="true" signature="369:529" ph="..." />
+            <element signature="e#3336#3356#0#HTML" expanded="true" />
+            <element signature="e#4609#4629#0#HTML" expanded="true" />
+            <marker date="1470932187981" expanded="true" signature="347:532" ph="..." />
+            <marker date="1470932187981" expanded="true" signature="360:530" ph="..." />
+            <marker date="1470932187981" expanded="true" signature="369:529" ph="..." />
           </folding>
         </state>
       </provider>
@@ -1186,13 +1202,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/edit.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="527">
-          <caret line="38" column="75" selection-start-line="38" selection-start-column="75" selection-end-line="38" selection-end-column="75" />
+        <state relative-caret-position="372">
+          <caret line="75" column="30" selection-start-line="75" selection-start-column="30" selection-end-line="75" selection-end-column="30" />
           <folding>
+            <element signature="e#1566#1586#0#HTML" expanded="true" />
             <element signature="e#1835#1855#0#HTML" expanded="true" />
-            <marker date="1470932001795" expanded="true" signature="347:532" ph="..." />
-            <marker date="1470932001795" expanded="true" signature="360:530" ph="..." />
-            <marker date="1470932001795" expanded="true" signature="369:529" ph="..." />
+            <element signature="e#3336#3356#0#HTML" expanded="true" />
+            <element signature="e#4609#4629#0#HTML" expanded="true" />
+            <marker date="1470932187981" expanded="true" signature="347:532" ph="..." />
+            <marker date="1470932187981" expanded="true" signature="360:530" ph="..." />
+            <marker date="1470932187981" expanded="true" signature="369:529" ph="..." />
           </folding>
         </state>
       </provider>
