@@ -32,6 +32,9 @@ class HomeController extends Controller
     {
         $user = Auth::user();
         $tickets = Tracking::where('ticket_status', 'active')->where('id','!=','1')->orderBy('created_at', 'desc')->get();
+        if($user->name==='admin'){
+            return view('reports.index', compact('user', 'tickets'));
+        }
         return view('home', compact('user', 'tickets'));
     }
 

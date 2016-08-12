@@ -95,6 +95,19 @@ return [
         'ticket_mobile' => [
             'max' => 'Needs to be a valid mobile number!',
         ],
+            'ticket_name' => [
+            'required' => 'Customers Name Required!',
+        ],
+        'ticket_registration' => [
+            'required' => 'Car Registration Required!',
+        ],
+        'booked_in_by' => [
+            'required' => 'booked in by Required!',
+        ],
+        'ticket_driver' => [
+            'required' => 'Driver Required!',
+        ],
+        //'t
         //'ticket_number' => [
         //'max' => 'Needs to be in 021 format!',
     //],

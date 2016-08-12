@@ -9,6 +9,9 @@
     @endif
     <div style="padding-bottom: 10px">
         <a class="btn btn-primary active" href="#">Active</a>
+        @if(Auth::user()->name === 'admin')
+            <a class="btn btn-success" href="/reports">Reports</a>
+        @endif
         <a class="btn btn-default pull-right" href="/history">History</a>
     </div>
     <div class="row">
@@ -24,7 +27,6 @@
                             <tr>
                                 <th></th>
                                 <th>No</th>
-                                <th></th>
                                 <th>Contact</th>
                                 <th>Action</th>
                                 <th></th>
@@ -41,8 +43,6 @@
                                     @if($ticket->existing_customer=="Yes")
                                         <i class="fa fa-asterisk" style="color: gold" aria-hidden="true"></i>
                                     @endif
-                                </td>
-                                    <td>
                                         {{ $ticket->ticket_name }} {{ $ticket->ticket_mobile}}
                                     </td>
                                 <td><a href="home/{{ $ticket->id }}" class="btn btn-success btn-sm">Pull</a></td>

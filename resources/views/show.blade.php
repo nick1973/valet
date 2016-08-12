@@ -47,9 +47,9 @@
                             </form>
                         </div>
                         <div class="col-xs-12 row" style="padding-bottom: 10px; padding-top: 10px">
-                            <div onclick="submitPrice('card')" class="col-xs-4"><button type="submit" class="btn btn-success">Paid Card</button></div>
-                            <div onclick="submitPrice('cash')" class="col-xs-4"><button type="submit" class="btn btn-primary">Paid Cash</button></div>
-                            <div onclick="submitPrice('free')" class="col-xs-4"><button type="submit" class="btn btn-danger">Not Paid</button></div>
+                            <div onclick="submitPrice('Card Payment')" class="col-xs-4"><button type="submit" class="btn btn-success">Paid Card</button></div>
+                            <div onclick="submitPrice('Cash Payment')" class="col-xs-4"><button type="submit" class="btn btn-primary">Paid Cash</button></div>
+                            <div onclick="submitPrice('Not Paid')" class="col-xs-4"><button type="submit" class="btn btn-danger">Not Paid</button></div>
                         </div>
                         <div id="submit" class="form-group"></div>
                         <div class="col-xs-12 row" style="padding-bottom: 10px">
@@ -71,7 +71,7 @@
             $('#paymentMethod').append("<input type='text' value='" + payment + "' name='ticket_payment' hidden />");
             $('#paymentMethod').append("<input type='text' value='complete' name='ticket_status' hidden />");
             $('#submit').empty();
-            $('#submit').append("<div class='col-xs-12'><p style='color: white'>You have chosen " + payment + " Payment</p></div>");
+            $('#submit').append("<div class='col-xs-12'><p style='color: white'>" + payment + "</p></div>");
             $('#submit').append("<input onclick='submitted()' type='submit' value='Done' class='form-control btn-warning' />");
         }
     </script>

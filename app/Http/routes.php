@@ -21,3 +21,8 @@ Route::resource('/home', 'HomeController');
 Route::get('/history', 'HomeController@history');
 Route::get('/history/{history}', 'HomeController@historyShow');
 Route::get('/reallocate/{reallocate}', 'HomeController@reallocateTicket');
+Route::resource('/reports', 'ReportsController');
+
+Route::get('/all-tickets', function () {
+    return ['data' => \App\Tracking::where('id','!=','1')->get()];
+});
