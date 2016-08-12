@@ -12,7 +12,7 @@
         <a class="btn btn-default pull-right" href="/history">History</a>
     </div>
     <div class="row">
-        <div class="col-md-10 col-md-offset-1">
+        <div class="col-md-10 col-lg-5 col-md-offset-1">
             <div class="panel panel-primary">
                 <div class="panel-heading">{{ $user->name }} You are logged in!</div>
 

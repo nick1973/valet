@@ -99,18 +99,8 @@ class HomeController extends Controller
             'ticket_driver' => 'required'
 
         ]);
-
-
         $input = $request->all();
         $ticket_number = $request->input('ticket_number');
-        //$update = $request->except(['_method', '_token']);
-        //LOOK TO SEE IF TICKET EXISTS AND HAS BEEN COMPLETED AND CREATE A NEW ONE WITH SAME TICKET NUMBER
-//        if(Tracking::where('ticket_number', '=', 100)->exists())
-//        {
-//            $ticket_number = 001;
-//            //return $ticket_number;
-//        }
-        //dd(Tracking::where('ticket_number', $ticket_number)->orderBy('id', 'desc')->first()->exists());
         // NO Ticket found
         if(Tracking::where('ticket_number', $ticket_number)->orderBy('id', 'desc')->first()==null)
         {
@@ -121,7 +111,7 @@ class HomeController extends Controller
                 // NO Ticket found
                 $ticket = Tracking::where('ticket_number', $ticket_number)->orderBy('id', 'desc')->first();
 
-                if($ticket->ticket_status==='complete')
+                if($ticket->ticket_status==='complete' || $ticket->ticket_status==='deleted')
                 {
                     Tracking::create($input);
                     return redirect('home')->with('status', 'Ticket\'s Been Issued!')->withInput();
