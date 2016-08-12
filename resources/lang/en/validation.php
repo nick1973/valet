@@ -94,15 +94,16 @@ return [
     'custom' => [
         'ticket_mobile' => [
             'max' => 'Needs to be a valid mobile number!',
+            'required' => 'Needs to be a valid mobile number!',
         ],
             'ticket_name' => [
             'required' => 'Customers Name Required!',
         ],
         'ticket_registration' => [
-            'required' => 'Car Registration Required!',
+            'required' => 'Vehicle Registration Required!',
         ],
         'booked_in_by' => [
-            'required' => 'booked in by Required!',
+            'required' => 'Booked in by Required!',
         ],
         'ticket_driver' => [
             'required' => 'Driver Required!',

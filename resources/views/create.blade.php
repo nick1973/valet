@@ -38,12 +38,20 @@
                             </div>
                             <div class="form-group">
                                 <select name="ticket_price" class="form-control" id="ticket_price">
-                                    @if(!empty($old_data->ticket_price))
+                                    @if(!empty(old('ticket_price')))
+                                        <option selected>{{ old('ticket_price') }}</option>
+                                        <option>£20</option>
+                                        <option>VIP-FREE</option>
+                                        <option>Self drive-£10</option>
+                                    @elseif(!empty($old_data->ticket_price))
                                         <option>{{ $old_data->ticket_price }}</option>
+                                        <option>£20</option>
+                                        <option>VIP-FREE</option>
+                                        <option>Self drive-£10</option>
                                     @else
-                                        <option value="20">£20</option>
-                                        <option value="0">VIP-FREE</option>
-                                        <option value="10">Self drive-£10</option>
+                                        <option>£20</option>
+                                        <option>VIP-FREE</option>
+                                        <option>Self drive-£10</option>
                                     @endif
                                 </select>
                             </div>
@@ -59,7 +67,21 @@
 
                             <div class="form-group">
                                 <select name="booked_in_by" class="form-control" id="ticket_price">
-                                    @if(!empty($old_data->booked_in_by))
+                                    @if(!empty(old('booked_in_by')))
+                                        <option selected>{{ old('booked_in_by') }}</option>
+                                        <option>Amy Hamilton</option>
+                                        <option>Arnoldo Mota</option>
+                                        <option>Brian Duggan</option>
+                                        <option>Dave Duggan</option>
+                                        <option>Ellie Porterfield</option>
+                                        <option>Fabio Barata</option>
+                                        <option>Ivo Correir</option>
+                                        <option>John Harris</option>
+                                        <option>Joshua Little</option>
+                                        <option>Nelson Fonseca</option>
+                                        <option>Robert Jones</option>
+                                        <option>Rui Jesus</option>
+                                    @elseif(!empty($old_data->booked_in_by))
                                         <option>{{ $old_data->booked_in_by }}</option>
                                     @else
                                         <option disabled selected>Booked in By</option>
@@ -81,7 +103,16 @@
 
                             <div class="form-group">
                                 <select name="ticket_driver" class="form-control" id="ticket_price">
-                                    @if(!empty($old_data->ticket_driver))
+                                    @if(!empty(old('ticket_driver')))
+                                        <option selected>{{ old('ticket_driver') }}</option>
+                                        <option>Arnoldo Mota</option>
+                                        <option>Brian Duggan</option>
+                                        <option>Dave Duggan</option>
+                                        <option>Ivo Correir</option>
+                                        <option>John Harris</option>
+                                        <option>Nelson Fonseca</option>
+                                        <option>Robert Jones</option>
+                                    @elseif(!empty($old_data->ticket_driver))
                                         <option>{{ $old_data->ticket_driver }}</option>
                                     @else
                                         <option disabled selected>Driver</option>
@@ -95,14 +126,13 @@
                                     @endif
                                 </select>
                             </div>
-
                             <div class="form-group">
-                                @if(!empty($old_data->existing_customer)=="Yes")
+                                @if(!empty($old_data->existing_customer)=="Yes" || !empty(old('existing_customer')))
                                     <input id="existing_customer" type="button" class="btn btn-success"
-                                           value="Is an Existing Customer">
+                                           name='existing_customer' value="Is an Existing Customer">
                                 @else
                                     <input id="existing_customer" type="button" class="btn btn-danger"
-                                           value="Not an Existing Customer">
+                                           name='existing_customer' value="Not an Existing Customer">
                                 @endif
                             </div>
                             <div id="existing"></div>
