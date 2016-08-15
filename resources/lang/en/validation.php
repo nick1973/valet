@@ -95,6 +95,7 @@ return [
         'ticket_mobile' => [
             'max' => 'Needs to be a valid mobile number!',
             'required' => 'Needs to be a valid mobile number!',
+            'numeric' => 'Needs to be a valid mobile number!',
         ],
             'ticket_name' => [
             'required' => 'Customers Name Required!',

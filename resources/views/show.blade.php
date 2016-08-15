@@ -68,7 +68,7 @@
 
         function submitPrice(payment) {
             $('#paymentMethod').empty();
-            $('#paymentMethod').append("<input type='text' value='" + payment + "' name='ticket_payment' hidden />");
+            $('#paymentMethod').append("<input class='text-center' type='text' value='" + payment + "' name='ticket_payment' hidden />");
             $('#paymentMethod').append("<input type='text' value='complete' name='ticket_status' hidden />");
             $('#submit').empty();
             $('#submit').append("<div class='col-xs-12'><p style='color: white'>" + payment + "</p></div>");
