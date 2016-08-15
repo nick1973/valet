@@ -21,6 +21,9 @@
                                 @else
                                     <input id="keysafe" type="button" class="btn btn-success pull-right" value="Key is Safe">
                                 @endif
+                                <div id="submit-show" class="collapse">
+                                    <input type="submit" class="btn bg-primary center-block" value="Save Changes">
+                                </div>
                             </div>
 
                             <div class="form-group">
@@ -130,6 +133,11 @@
     </div>
     <script>
         $(document).ready(function() {
+
+            $("#keysafe").click(function () {
+                $("#submit-show").removeClass('collapse');
+            });
+            
             $("#keysafe").click(function () {
                 $("#keysafe").toggleClass('btn-danger').toggleClass('btn-success');
                 if(this.value == 'Key Not Safe')
