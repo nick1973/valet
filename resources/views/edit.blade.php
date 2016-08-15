@@ -21,9 +21,10 @@
                                 @else
                                     <input id="keysafe" type="button" class="btn btn-success pull-right" value="Key is Safe">
                                 @endif
-                                <div id="submit-show" class="collapse">
-                                    <input type="submit" class="btn bg-primary center-block" value="Save Changes">
-                                </div>
+                            </div>
+
+                            <div class="form-group" id="submit-show" style="display: none">
+                                <input type="submit" class="btn bg-primary center-block" value="Save Changes">
                             </div>
 
                             <div class="form-group">
@@ -135,7 +136,7 @@
         $(document).ready(function() {
 
             $("#keysafe").click(function () {
-                $("#submit-show").removeClass('collapse');
+                $("#submit-show").toggle('fade');
             });
             
             $("#keysafe").click(function () {
