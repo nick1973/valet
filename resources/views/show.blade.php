@@ -23,7 +23,7 @@
                         <div class="col-xs-6">
                             <p><?php echo empty($ticket->ticket_name) ? "." : "<span style='color: white'>" .$ticket->ticket_name. "</span>"; ?></p>
                             <p><?php echo empty($ticket->ticket_mobile) ? "." : "<span style='color: white'>" .$ticket->ticket_mobile. "</span>"; ?></p>
-                            <p><?php echo empty($ticket->ticket_registration) ? "." : "<span style='color: white'>" .$ticket->ticket_registration. "</span>"; ?></p>
+                            <p><?php echo empty($ticket->ticket_registration) ? "." : "<span style='text-transform:uppercase;color: white'>" .$ticket->ticket_registration. "</span>"; ?></p>
                             <p><?php echo empty($ticket->existing_customer) ? "." : "<span><i class='fa fa-asterisk' style='color: gold' aria-hidden='true'></i></span>"; ?></p>
                             <p><?php echo empty($ticket->ticket_manufacturer) ? "." : "<span style='color: white'>" .$ticket->ticket_manufacturer. "</span>"; ?></p>
                             <p><?php echo empty($ticket->ticket_model) ? "." : "<span style='color: white'>" .$ticket->ticket_model. "</span>"; ?></p>
