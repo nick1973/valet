@@ -9,9 +9,10 @@
     @endif
     <div style="padding-bottom: 10px">
         <a class="btn btn-primary active" href="#">Active</a>
-        @if(Auth::user()->name === 'admin')
-            <a class="btn btn-success" href="/reports">Reports</a>
-        @endif
+        {{--@if(Auth::user()->name === 'admin')--}}
+            {{--<a class="btn btn-success" href="/reports">Reports</a>--}}
+        {{--@endif--}}
+        <a class="btn btn-warning col-xs-offset-2" href="/pre-booking">Pre Booked</a>
         <a class="btn btn-default pull-right" href="/history">History</a>
     </div>
     <div class="row">

@@ -98,16 +98,18 @@ return [
             'numeric' => 'Needs to be a valid mobile number!',
         ],
             'ticket_name' => [
-            'required' => 'Customers Name Required!',
+            'required' => 'Customers Name is Required!',
         ],
         'ticket_registration' => [
-            'required' => 'Vehicle Registration Required!',
+            'required' => 'Vehicle Registration is Required!',
         ],
         'booked_in_by' => [
             'required' => 'Booked in by Required!',
         ],
         'ticket_driver' => [
             'required' => 'Driver Required!',
+        ],'auth_by' => [
+            'required' => 'Authoriser Name is Required!',
         ],
         //'t
         //'ticket_number' => [

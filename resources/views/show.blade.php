@@ -41,7 +41,7 @@
                                     <option>{{ $ticket->ticket_price }}</option>
                                     <option value="20">£20</option>
                                     <option value="0">VIP-FREE</option>
-                                    <option value="10">Self drive-£10</option>
+                                    {{--<option value="10">Self drive-£10</option>--}}
                                 </select>
                                 <div id="paymentMethod" class="col-xs-12"></div>
                             </form>

@@ -32,16 +32,16 @@
                                 {!! Form::text('ticket_number', null, ['class' => 'form-control', 'disabled']) !!}
                             </div>
                             <div class="form-group">
-                                <label style="color: white">Reg</label>
-                                {!! Form::text('ticket_registration', null, ['class' => 'form-control']) !!}
+                                <label style="color: white;">Reg</label>
+                                {!! Form::text('ticket_registration', null, ['class' => 'form-control', 'style'=>'text-transform:uppercase']) !!}
                             </div>
                             <div class="form-group">
                                 <label style="color: white">Price</label>
                                 <select name="ticket_price" class="form-control" id="ticket_price">
                                         <option>{{ $ticket->ticket_price }}</option>
-                                        <option value="20">£20</option>
-                                        <option value="0">VIP-FREE</option>
-                                        <option value="10">Self drive-£10</option>
+                                        <option>£20</option>
+                                        <option>VIP-FREE</option>
+                                        {{--<option>Self drive-£10</option>--}}
 
                                 </select>
                             </div>
@@ -63,13 +63,14 @@
                             <select name="booked_in_by" class="form-control" id="ticket_price">
                                 @if(!empty($ticket->booked_in_by))
                                     <option>{{ $ticket->booked_in_by }}</option>
+
                                     <option>Amy Hamilton</option>
                                     <option>Arnoldo Mota</option>
                                     <option>Brian Duggan</option>
                                     <option>Dave Duggan</option>
                                     <option>Ellie Porterfield</option>
                                     <option>Fabio Barata</option>
-                                    <option>Ivo Correir</option>
+                                    <option>Ivo Correia</option>
                                     <option>John Harris</option>
                                     <option>Joshua Little</option>
                                     <option>Nelson Fonseca</option>
@@ -84,10 +85,11 @@
                             <select name="ticket_driver" class="form-control" id="ticket_price">
                                 @if(!empty($ticket->ticket_driver))
                                     <option>{{ $ticket->ticket_driver }}</option>
+
                                     <option>Arnoldo Mota</option>
                                     <option>Brian Duggan</option>
                                     <option>Dave Duggan</option>
-                                    <option>Ivo Correir</option>
+                                    <option>Ivo Correia</option>
                                     <option>John Harris</option>
                                     <option>Nelson Fonseca</option>
                                     <option>Robert Jones</option>

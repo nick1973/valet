@@ -17,22 +17,14 @@
     <div class="container">
         <div class="row">
             <div class="col-md-10 col-md-offset-1">
-                <div class="panel panel-primary">
-                    <div class="panel-heading">Create a New Entry</div>
+                <div class="panel panel-warning">
+                    <div class="panel-heading">Create a Pre Booked Entry</div>
                     <div class="panel-body">
-                        <form id="testform" class="form-viritical" action="/home" method="post">
+                        <form id="testform" class="form-viritical" action="/pre-booking" method="post">
                             {{ csrf_field() }}
+                            <input name="ticket_status" value="pre booked" class="hidden">
                             <div class="form-group">
-                                @if (session('ticket_number'))
-                                    <input value="{{ session('ticket_number') }}"
-                                           name="ticket_number" type="text" class="form-control" id="ticket_number" placeholder="Ticket Number">
-                                @else
-                                    <input value="<?php echo empty($ticket_number) ? "" : $ticket_number; ?>"
-                                       name="ticket_number" type="text" class="form-control" id="ticket_number" placeholder="Ticket Number">
-                                @endif
-                            </div>
-                            <div class="form-group">
-                                <input name="ticket_registration" autocapitalize="characters" style="text-transform:uppercase" type="text" class="form-control"
+                                <input name="ticket_registration" style="text-transform:uppercase" type="text" class="form-control"
                                        id="ticket_registration" placeholder="Registration"
                                        value="{{ empty($old_data->ticket_registration) ? old('ticket_registration') : $old_data->ticket_registration }}">
                             </div>
@@ -54,6 +46,9 @@
                                         {{--<option>Self drive-£10</option>--}}
                                     @endif
                                 </select>
+                            </div>
+                            <div class="form-group">
+                                <input name="auth_by" class="form-control" placeholder="Authorised By">
                             </div>
                             <div class="form-group">
                                 <input name="ticket_name" type="text" class="form-control" id="ticket_name" placeholder="Name"
@@ -154,13 +149,12 @@
                                     <textarea name="ticket_notes" class="form-control" placeholder="Notes:">
                                         {{ $old_data->ticket_notes }}
                                     </textarea>
-                                    @else
+                                @else
                                     <textarea name="ticket_notes" class="form-control" placeholder="Notes:"></textarea>
                                 @endif
                             </div>
                             <div class="form-group">
-                                <input name="ticket_status" type="text" value="active" hidden>
-                                <input type="submit" class="btn bg-primary center-block" value="Issue Ticket">
+                                <input type="submit" class="btn bg-primary center-block" value="Pre Book">
                             </div>
                         </form>
 

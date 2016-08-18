@@ -22,6 +22,8 @@
     <script src="//cdn.datatables.net/buttons/1.2.2/js/buttons.html5.min.js"></script>
     <script src="//cdn.datatables.net/buttons/1.2.2/js/buttons.print.min.js"></script>
 
+    <script src="https://cdn.jsdelivr.net/vue/1.0.26/vue.min.js"></script>
+
     <link rel="stylesheet" href="https://cdn.datatables.net/1.10.12/css/dataTables.bootstrap.min.css">
     <link rel="stylesheet" href="https://cdn.datatables.net/1.10.12/css/jquery.dataTables.min.css">
     <link rel="stylesheet" href="https://cdn.datatables.net/buttons/1.2.2/css/buttons.dataTables.min.css">
@@ -73,6 +75,7 @@
                 <!-- Left Side Of Navbar -->
                 <ul class="nav navbar-nav">
                     <li><a href="{{ url('/home') }}">Home</a></li>
+                    <li><a href="/reports/car-count">Daily Car Count</a></li>
                 </ul>
 
                 <!-- Right Side Of Navbar -->
@@ -101,7 +104,10 @@
 
     @yield('content')
 
-    <!-- JavaScripts -->
-
+    <footer class="footer">
+        <div class="container">
+            <p class="text-muted">CTM Valet App &copy; 2016 <small>v0.2</small></p>
+        </div>
+    </footer>
 </body>
 </html>

@@ -31,7 +31,7 @@ class HomeController extends Controller
     public function index()
     {
         $user = Auth::user();
-        $tickets = Tracking::where('ticket_status', 'active')->where('id','!=','1')->orderBy('created_at', 'desc')->get();
+        $tickets = Tracking::where('ticket_status', 'active')->where('id','!=','1')->orderBy('updated_at', 'desc')->get();
         if($user->name==='admin'){
             return view('reports.index', compact('user', 'tickets'));
         }
@@ -99,7 +99,7 @@ class HomeController extends Controller
             'ticket_mobile' => 'required|numeric',
             'ticket_registration' => 'required',
             'booked_in_by' => 'required',
-            'ticket_driver' => 'required'
+//            'ticket_driver' => 'required'
 
         ]);
         $input = $request->all();
@@ -130,5 +130,21 @@ class HomeController extends Controller
         $input = $request->all();
         $ticket->update($input);
         return redirect()->route('home.index');
+    }
+
+    public function searchHistory(Request $request)
+    {
+        $reg = $request->input('searchreg');
+        return $request->all();
+        if($reg===null){
+            $reg = '';
+        }
+
+        $tickets = Tracking::where('ticket_status', 'active')->Where('ticket_registration', 'LIKE', '%'.$reg.'%')
+            ->orderBy('created_at', 'desc')->get();
+        //$tickets = Tracking::all();
+        return $reg;
+        //return view('history', compact('user', 'tickets'));
+
     }
 }
