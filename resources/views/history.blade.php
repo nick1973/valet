@@ -34,10 +34,12 @@
                                         <td><i style="color: green" class="fa fa-key" aria-hidden="true"></i></td>
                                     @endif
                                     <td>{{ $ticket->ticket_number }}</td>
-                                    <td>@if($ticket->existing_customer=="Yes")
+                                    <td><div style="word-wrap: break-word; width: 100px">
+                                        @if($ticket->existing_customer=="Yes")
                                             <i class="fa fa-asterisk" style="color: gold" aria-hidden="true"></i>
                                         @endif
-                                        {{ $ticket->ticket_name }} {{ $ticket->ticket_mobile}}</td>
+                                        {{ $ticket->ticket_name }} {{ $ticket->ticket_mobile}}
+                                    </div></td>
                                         <td><a href="history/{{ $ticket->id }}" class="btn btn-success btn-sm">View</a></td>
                                         <td>{{ date_format($ticket->created_at,"d/m/y") }}</td>
                                 </tr>
