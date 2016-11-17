@@ -6,12 +6,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <title>CTM Valet App</title>
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    {{--<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.3/jquery.min.js" integrity="sha384-I6F5OKECLVtK/BL+8iSLDEHowSAfUo76ZL9+kGAgTRdiByINKJaqTPH/QVNS1VDb" crossorigin="anonymous"></script>--}}
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.3/jquery.min.js" integrity="sha384-I6F5OKECLVtK/BL+8iSLDEHowSAfUo76ZL9+kGAgTRdiByINKJaqTPH/QVNS1VDb" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
-    {{-- <script src="{{ elixir('js/app.js') }}"></script> --}}
-    <script src="//code.jquery.com/jquery-1.12.3.js"></script>
-    {{--<script src="/dataTables.min.js"></script>--}}
+    {{--<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.15.1/locale/en-gb.js"></script>--}}
+
+    <script type="text/javascript" src="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.2.2/js/bootstrap.min.js"></script>
+
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.4/js/bootstrap-datepicker.js"></script>
+
+
+
+    {{--<script src="//code.jquery.com/jquery-1.12.3.js"></script>--}}
+    {{--<script src="https://cdnjs.cloudflare.com/ajax/libs/bootpag/1.0.7/jquery.bootpag.js"></script>--}}
 
     <script src="https://cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/buttons/1.2.2/js/dataTables.buttons.min.js"></script>
@@ -24,9 +36,13 @@
 
     <script src="https://cdn.jsdelivr.net/vue/1.0.26/vue.min.js"></script>
 
+
     <link rel="stylesheet" href="https://cdn.datatables.net/1.10.12/css/dataTables.bootstrap.min.css">
     <link rel="stylesheet" href="https://cdn.datatables.net/1.10.12/css/jquery.dataTables.min.css">
     <link rel="stylesheet" href="https://cdn.datatables.net/buttons/1.2.2/css/buttons.dataTables.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/buttons/1.2.2/css/buttons.dataTables.min.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.4/css/bootstrap-datepicker.css">
 
     <!-- Fonts -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css" integrity="sha384-XdYbMnZ/QjLh6iI4ogqCTaIjrFk87ip+ekIjefZch0Y+PvJ8CDYtEs1ipDmPorQ+" crossorigin="anonymous">
@@ -37,6 +53,10 @@
     <!-- Styles -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
     {{-- <link href="{{ elixir('css/app.css') }}" rel="stylesheet"> --}}
+
+    {{--<script type="text/javascript" src="/path/to/bootstrap/js/collapse.js"></script>--}}
+    {{--<script type="text/javascript" src="https://raw.githubusercontent.com/twbs/bootstrap/master/dist/js/bootstrap.js"></script>--}}
+
 
     <style>
         html, body { background: #333 }
@@ -75,7 +95,11 @@
                 <!-- Left Side Of Navbar -->
                 <ul class="nav navbar-nav">
                     <li><a href="{{ url('/home') }}">Home</a></li>
-                    <li><a href="/reports/car-count">Daily Car Count</a></li>
+                    @if(Auth::check())
+                        @if(Auth::user()->name!=='visitorcentre')
+                            <li><a href="/reports/car-count">Daily Car Count</a></li>
+                        @endif
+                    @endif
                 </ul>
 
                 <!-- Right Side Of Navbar -->
@@ -86,7 +110,7 @@
 
                         {{--<li><a href="{{ url('/register') }}">Register</a></li>--}}
                     @else
-                        <li><a href="{{ url('/logout') }}"><i class="fa fa-btn fa-sign-out"></i>Logout</a></li>
+                        <li><a href="{{ url('/user/log_out') }}"><i class="fa fa-btn fa-sign-out"></i>Logout</a></li>
                         {{--<li class="dropdown">--}}
                             {{--<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">--}}
                                 {{--{{ Auth::user()->name }} <span class="caret"></span>--}}
@@ -106,8 +130,12 @@
 
     <footer class="footer">
         <div class="container">
-            <p class="text-muted">CTM Valet App &copy; 2016 <small>v0.2</small></p>
+            <p class="text-muted">CTM Valet App &copy; 2016 <small>v0.3</small></p>
         </div>
     </footer>
 </body>
+<link rel="stylesheet" type="text/css" href="/css/jquery.datetimepicker.css">
+<script src="/js/jquery.js"></script>
+<script src="/build/jquery.datetimepicker.full.js"></script>
+
 </html>

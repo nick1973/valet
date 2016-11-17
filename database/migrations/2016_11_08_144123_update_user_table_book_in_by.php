@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class UpdateTrakingTable extends Migration
+class UpdateUserTableBookInBy extends Migration
 {
     /**
      * Run the migrations.
@@ -12,8 +12,8 @@ class UpdateTrakingTable extends Migration
      */
     public function up()
     {
-        Schema::table('tracking', function ($table) {
-            $table->string('auth_by');
+        Schema::table('users', function ($table) {
+            $table->string('booked_in_by');
         });
     }
 
@@ -24,6 +24,8 @@ class UpdateTrakingTable extends Migration
      */
     public function down()
     {
-        //
+        Schema::table('users', function ($table) {
+            $table->dropColumn('booked_in_by');
+        });
     }
 }

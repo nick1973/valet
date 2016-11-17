@@ -14,23 +14,44 @@
                             'class' => '']) !!}
                             {{ csrf_field() }}
 
-                            <div class="form-group">
-                                <a href="/reallocate/{{ $ticket->id }}" class="btn btn-warning">Reallocate Ticket No</a>
-                                @if($ticket->ticket_key_safe=="")
-                                    <input id="keysafe" type="button" class="btn btn-danger pull-right" value="Key Not Safe">
-                                @else
-                                    <input id="keysafe" type="button" class="btn btn-success pull-right" value="Key is Safe">
+                            <div class="row" style="padding-right: 10px">
+                                @if(Auth::user()->name==='manager' || Auth::user()->name==='admin')
+                                    <a href="/reallocate/{{ $ticket->id }}" class="btn btn-warning">Reallocate Ticket No</a>
                                 @endif
+                                    @if($ticket->ticket_key_safe=="")
+                                        <input id="keysafe" type="button" class="btn btn-danger pull-right" value="Key Not Safe">
+                                    @else
+                                        <input id="keysafe" type="button" class="btn btn-success pull-right" value="Key is Safe">
+                                    @endif
+
                             </div>
 
                             <div class="form-group" id="submit-show" style="display: none">
                                 <input type="submit" class="btn bg-primary center-block" value="Save Changes">
                             </div>
-
+                            @if(Auth::user()->name=='visitorcentre')
+                            <?php
+                            $date = date_create(\Carbon\Carbon::now());
+                            ?>
+                                <div class="col-lg-3 col-md-3">
+                                    <div class="form-group">
+                                        <div class="input-group date" data-provide="datepicker" data-date-format="yyyy/mm/dd"
+                                             data-date="{{ date_format($date,"Y/m/d") }}">
+                                            <input name="booking_date" type="text" class="form-control" value="{{ date_format($date,"Y/m/d") }}">
+                                            <div class="input-group-addon">
+                                                <span class="glyphicon glyphicon-th"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            @endif
                             <div class="form-group">
                                 <label style="color: white">Ticket Number</label>
-                                {!! Form::text('ticket_number', null, ['class' => 'form-control', 'disabled']) !!}
+                                <input placeholder="To Be Confirmed" class="form-control" value="{{ $ticket->valet1_ticket_id }}{{ $ticket->valet2_ticket_id }}{{ $ticket->valet3_ticket_id }}"
+                                readonly>
+                                {{--{!! Form::text('ticket_number', null, ['class' => 'form-control', 'disabled']) !!}--}}
                             </div>
+
                             <div class="form-group">
                                 <label style="color: white;">Reg</label>
                                 {!! Form::text('ticket_registration', null, ['class' => 'form-control', 'style'=>'text-transform:uppercase']) !!}
@@ -57,45 +78,51 @@
                                 <label style="color: white">Mobile</label>
                                 {!! Form::text('ticket_mobile', null, ['class' => 'form-control']) !!}
                             </div>
+                        @if(Auth::user()->name!='visitorcentre')
+                            <div class="form-group">
+                                <label style="color: white">Booked in by</label>
+                                <select name="booked_in_by" class="form-control" id="ticket_price">
+                                    {{--@if($ticket->booked_in_by==null)--}}
+                                        <option>{{ $ticket->booked_in_by }}</option>
 
-                        <div class="form-group">
-                            <label style="color: white">Booked in by</label>
-                            <select name="booked_in_by" class="form-control" id="ticket_price">
-                                @if(!empty($ticket->booked_in_by))
-                                    <option>{{ $ticket->booked_in_by }}</option>
+                                        {{--<option>Amy Hamilton</option>--}}
+                                        {{--<option>Arnoldo Mota</option>--}}
+                                        {{--<option>Brian Duggan</option>--}}
+                                        {{--<option>Dave Duggan</option>--}}
+                                        {{--<option>Ellie Porterfield</option>--}}
+                                        {{--<option>Fabio Barata</option>--}}
+                                        {{--<option>Ivo Correia</option>--}}
+                                        {{--<option>John Harris</option>--}}
+                                        {{--<option>Joshua Little</option>--}}
+                                        {{--<option>Nelson Fonseca</option>--}}
+                                        {{--<option>Robert Jones</option>--}}
+                                        {{--<option>Rui Jesus</option>--}}
+                                    {{--@endif--}}
+                                </select>
+                            </div>
+                        @else
+                            <div class="form-group">
+                                <label style="color: white">Booked in by</label>
+                                <input name="booked_in_by" type="text" class="form-control" id="booked_in_by" placeholder=""
+                                       value="Visitors Centre">
+                            </div>
+                        @endif
+                        {{--<div class="form-group">--}}
+                            {{--<label style="color: white">Driver</label>--}}
+                            {{--<select name="ticket_driver" class="form-control" id="ticket_price">--}}
+                                {{--@if($ticket->ticket_driver==null)--}}
+                                    {{--<option>{{ $ticket->ticket_driver }}</option>--}}
 
-                                    <option>Amy Hamilton</option>
-                                    <option>Arnoldo Mota</option>
-                                    <option>Brian Duggan</option>
-                                    <option>Dave Duggan</option>
-                                    <option>Ellie Porterfield</option>
-                                    <option>Fabio Barata</option>
-                                    <option>Ivo Correia</option>
-                                    <option>John Harris</option>
-                                    <option>Joshua Little</option>
-                                    <option>Nelson Fonseca</option>
-                                    <option>Robert Jones</option>
-                                    <option>Rui Jesus</option>
-                                @endif
-                            </select>
-                        </div>
-
-                        <div class="form-group">
-                            <label style="color: white">Driver</label>
-                            <select name="ticket_driver" class="form-control" id="ticket_price">
-                                @if(!empty($ticket->ticket_driver))
-                                    <option>{{ $ticket->ticket_driver }}</option>
-
-                                    <option>Arnoldo Mota</option>
-                                    <option>Brian Duggan</option>
-                                    <option>Dave Duggan</option>
-                                    <option>Ivo Correia</option>
-                                    <option>John Harris</option>
-                                    <option>Nelson Fonseca</option>
-                                    <option>Robert Jones</option>
-                                @endif
-                            </select>
-                        </div>
+                                    {{--<option>Arnoldo Mota</option>--}}
+                                    {{--<option>Brian Duggan</option>--}}
+                                    {{--<option>Dave Duggan</option>--}}
+                                    {{--<option>Ivo Correia</option>--}}
+                                    {{--<option>John Harris</option>--}}
+                                    {{--<option>Nelson Fonseca</option>--}}
+                                    {{--<option>Robert Jones</option>--}}
+                                {{--@endif--}}
+                            {{--</select>--}}
+                        {{--</div>--}}
 
                             <div class="form-group">
                                 <label style="color: white"></label>

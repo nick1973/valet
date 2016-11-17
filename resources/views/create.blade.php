@@ -22,13 +22,16 @@
                     <div class="panel-body">
                         <form id="testform" class="form-viritical" action="/home" method="post">
                             {{ csrf_field() }}
+                            <input name="ticket_serial_number" value="{{ $ticket_serial_number }}" readonly hidden>
                             <div class="form-group">
                                 @if (session('ticket_number'))
                                     <input value="{{ session('ticket_number') }}"
-                                           name="ticket_number" type="text" class="form-control" id="ticket_number" placeholder="Ticket Number">
+                                           name="ticket_number" type="text" class="form-control" id="ticket_number" placeholder="Ticket Number"
+                                    readonly>
                                 @else
                                     <input value="<?php echo empty($ticket_number) ? "" : $ticket_number; ?>"
-                                       name="ticket_number" type="text" class="form-control" id="ticket_number" placeholder="Ticket Number">
+                                       name="ticket_number" type="text" class="form-control" id="ticket_number" placeholder="Ticket Number"
+                                    readonly>
                                 @endif
                             </div>
                             <div class="form-group">
@@ -66,66 +69,68 @@
                             </div>
 
                             <div class="form-group">
-                                <select name="booked_in_by" class="form-control" id="ticket_price">
-                                    @if(!empty(old('booked_in_by')))
-                                        <option selected>{{ old('booked_in_by') }}</option>
-                                        <option>Amy Hamilton</option>
-                                        <option>Arnoldo Mota</option>
-                                        <option>Brian Duggan</option>
-                                        <option>Dave Duggan</option>
-                                        <option>Ellie Porterfield</option>
-                                        <option>Fabio Barata</option>
-                                        <option>Ivo Correia</option>
-                                        <option>John Harris</option>
-                                        <option>Joshua Little</option>
-                                        <option>Nelson Fonseca</option>
-                                        <option>Robert Jones</option>
-                                        <option>Rui Jesus</option>
-                                    @elseif(!empty($old_data->booked_in_by))
-                                        <option>{{ $old_data->booked_in_by }}</option>
-                                    @else
-                                        <option disabled selected>Booked in By</option>
-                                        <option>Amy Hamilton</option>
-                                        <option>Arnoldo Mota</option>
-                                        <option>Brian Duggan</option>
-                                        <option>Dave Duggan</option>
-                                        <option>Ellie Porterfield</option>
-                                        <option>Fabio Barata</option>
-                                        <option>Ivo Correia</option>
-                                        <option>John Harris</option>
-                                        <option>Joshua Little</option>
-                                        <option>Nelson Fonseca</option>
-                                        <option>Robert Jones</option>
-                                        <option>Rui Jesus</option>
-                                    @endif
-                                </select>
+                                <input name="booked_in_by" type="text" class="form-control" id="" placeholder="Booked in By"
+                                       value="{{ empty($booked_in_by) ? 'No Name' : $booked_in_by }}" readonly>
+                                {{--<select name="booked_in_by" class="form-control" id="ticket_price">--}}
+                                    {{--@if(!empty(old('booked_in_by')))--}}
+                                        {{--<option selected>{{ old('booked_in_by') }}</option>--}}
+                                        {{--<option>Amy Hamilton</option>--}}
+                                        {{--<option>Arnoldo Mota</option>--}}
+                                        {{--<option>Brian Duggan</option>--}}
+                                        {{--<option>Dave Duggan</option>--}}
+                                        {{--<option>Ellie Porterfield</option>--}}
+                                        {{--<option>Fabio Barata</option>--}}
+                                        {{--<option>Ivo Correia</option>--}}
+                                        {{--<option>John Harris</option>--}}
+                                        {{--<option>Joshua Little</option>--}}
+                                        {{--<option>Nelson Fonseca</option>--}}
+                                        {{--<option>Robert Jones</option>--}}
+                                        {{--<option>Rui Jesus</option>--}}
+                                    {{--@elseif(!empty($old_data->booked_in_by))--}}
+                                        {{--<option>{{ $old_data->booked_in_by }}</option>--}}
+                                    {{--@else--}}
+                                        {{--<option disabled selected>Booked in By</option>--}}
+                                        {{--<option>Amy Hamilton</option>--}}
+                                        {{--<option>Arnoldo Mota</option>--}}
+                                        {{--<option>Brian Duggan</option>--}}
+                                        {{--<option>Dave Duggan</option>--}}
+                                        {{--<option>Ellie Porterfield</option>--}}
+                                        {{--<option>Fabio Barata</option>--}}
+                                        {{--<option>Ivo Correia</option>--}}
+                                        {{--<option>John Harris</option>--}}
+                                        {{--<option>Joshua Little</option>--}}
+                                        {{--<option>Nelson Fonseca</option>--}}
+                                        {{--<option>Robert Jones</option>--}}
+                                        {{--<option>Rui Jesus</option>--}}
+                                    {{--@endif--}}
+                                {{--</select>--}}
                             </div>
 
-                            <div class="form-group">
-                                <select name="ticket_driver" class="form-control" id="ticket_price">
-                                    @if(!empty(old('ticket_driver')))
-                                        <option selected>{{ old('ticket_driver') }}</option>
-                                        <option>Arnoldo Mota</option>
-                                        <option>Brian Duggan</option>
-                                        <option>Dave Duggan</option>
-                                        <option>Ivo Correir</option>
-                                        <option>John Harris</option>
-                                        <option>Nelson Fonseca</option>
-                                        <option>Robert Jones</option>
-                                    @elseif(!empty($old_data->ticket_driver))
-                                        <option>{{ $old_data->ticket_driver }}</option>
-                                    @else
-                                        <option disabled selected>Driver</option>
-                                        <option>Arnoldo Mota</option>
-                                        <option>Brian Duggan</option>
-                                        <option>Dave Duggan</option>
-                                        <option>Ivo Correir</option>
-                                        <option>John Harris</option>
-                                        <option>Nelson Fonseca</option>
-                                        <option>Robert Jones</option>
-                                    @endif
-                                </select>
-                            </div>
+                            {{--<div class="form-group">--}}
+                                {{--<select name="ticket_driver" class="form-control" id="ticket_price">--}}
+                                    {{--@if(!empty(old('ticket_driver')))--}}
+                                        {{--<option selected>{{ old('ticket_driver') }}</option>--}}
+                                        {{--<option>Arnoldo Mota</option>--}}
+                                        {{--<option>Brian Duggan</option>--}}
+                                        {{--<option>Dave Duggan</option>--}}
+                                        {{--<option>Ivo Correir</option>--}}
+                                        {{--<option>John Harris</option>--}}
+                                        {{--<option>Nelson Fonseca</option>--}}
+                                        {{--<option>Robert Jones</option>--}}
+                                    {{--@elseif(!empty($old_data->ticket_driver))--}}
+                                        {{--<option>{{ $old_data->ticket_driver }}</option>--}}
+                                    {{--@else--}}
+                                        {{--<option disabled selected>Driver</option>--}}
+                                        {{--<option>Arnoldo Mota</option>--}}
+                                        {{--<option>Brian Duggan</option>--}}
+                                        {{--<option>Dave Duggan</option>--}}
+                                        {{--<option>Ivo Correir</option>--}}
+                                        {{--<option>John Harris</option>--}}
+                                        {{--<option>Nelson Fonseca</option>--}}
+                                        {{--<option>Robert Jones</option>--}}
+                                    {{--@endif--}}
+                                {{--</select>--}}
+                            {{--</div>--}}
                             <div class="form-group">
                                 @if(!empty($old_data->existing_customer)=="Yes" || !empty(old('existing_customer')))
                                     <input id="existing_customer" type="button" class="btn btn-success"

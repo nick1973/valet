@@ -11,7 +11,16 @@
                         <table id="reports" class="stripe table-responsive" cellspacing="0" width="100%">
                             <thead>
                             <tr>
-                                <th class="text-center">No</th>
+                                <th class="text-center">Ticket No</th>
+
+                                <th class="text-center">valet1 Ticket No</th>
+                                <th class="text-center">valet2 Ticket No</th>
+                                <th class="text-center">valet3 Ticket No</th>
+
+                                <th class="text-center">valet1 Serial No</th>
+                                <th class="text-center">valet2 Serial No</th>
+                                <th class="text-center">valet3 Serial No</th>
+
                                 <th class="text-center">Name</th>
                                 <th class="text-center">Reg</th>
                                 <th class="text-center">Mobile</th>
@@ -77,6 +86,14 @@
             ],
             "columns": [
                 { "data": "ticket_number" , className: "centre" },
+                { "data": "valet1_ticket_id" , className: "centre" },
+                { "data": "valet2_ticket_id" , className: "centre" },
+                { "data": "valet3_ticket_id" , className: "centre" },
+
+                { "data": "valet1_ticket_serial_number" , className: "centre" },
+                { "data": "valet2_ticket_serial_number" , className: "centre" },
+                { "data": "valet3_ticket_serial_number" , className: "centre" },
+
                 { "data": "ticket_name" , className: "centre" },
                 { "data": "ticket_registration" , className: "centandcaps" },
                 { "data": "ticket_mobile" , className: "centre" },

@@ -12,6 +12,7 @@ class VerifyCsrfToken extends BaseVerifier
      * @var array
      */
     protected $except = [
-        //
+        'reports/weekly-report',
+        '/reports/weekly_notes'
     ];
 }
