@@ -28,9 +28,9 @@
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/HomeController.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="237">
-              <caret line="100" column="78" selection-start-line="100" selection-start-column="78" selection-end-line="100" selection-end-column="78" />
+              <caret line="100" column="88" selection-start-line="100" selection-start-column="88" selection-end-line="100" selection-end-column="88" />
               <folding>
-                <marker date="1480095805988" expanded="true" signature="9199:9207" ph="..." />
+                <marker date="1480095958166" expanded="true" signature="9170:9178" ph="..." />
               </folding>
             </state>
           </provider>
@@ -375,7 +375,7 @@
       <workItem from="1480069402282" duration="2841000" />
       <workItem from="1480086659305" duration="627000" />
       <workItem from="1480089333570" duration="1674000" />
-      <workItem from="1480095041349" duration="776000" />
+      <workItem from="1480095041349" duration="917000" />
     </task>
     <task id="LOCAL-00001" summary="CTMVALET">
       <created>1470824544963</created>
@@ -713,11 +713,18 @@
       <option name="project" value="LOCAL" />
       <updated>1480095659914</updated>
     </task>
-    <option name="localTasksCounter" value="49" />
+    <task id="LOCAL-00049" summary="bug fix's v0.3">
+      <created>1480095824205</created>
+      <option name="number" value="00049" />
+      <option name="presentableId" value="LOCAL-00049" />
+      <option name="project" value="LOCAL" />
+      <updated>1480095824205</updated>
+    </task>
+    <option name="localTasksCounter" value="50" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="388553000" />
+    <option name="totallyTimeSpent" value="388694000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -1113,9 +1120,9 @@
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/HomeController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="237">
-          <caret line="100" column="78" selection-start-line="100" selection-start-column="78" selection-end-line="100" selection-end-column="78" />
+          <caret line="100" column="88" selection-start-line="100" selection-start-column="88" selection-end-line="100" selection-end-column="88" />
           <folding>
-            <marker date="1480095805988" expanded="true" signature="9199:9207" ph="..." />
+            <marker date="1480095958166" expanded="true" signature="9170:9178" ph="..." />
           </folding>
         </state>
       </provider>
