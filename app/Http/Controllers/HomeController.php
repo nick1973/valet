@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests;
 use App\Tracking;
 use App\User;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -47,6 +48,9 @@ class HomeController extends Controller
         if($user->name==='visitorcentre'){
             return redirect()->action('PreBookController@index');
         }
+        if($user->name==='manager'){
+            return redirect()->action('ReportsController@managerReport');
+        }
         if($user->ticket_number!=='' || $user->ticket_serial_number!==''){
             return view('home', compact('user', 'tickets'));
         }
@@ -57,7 +61,7 @@ class HomeController extends Controller
     public function history()
     {
         $user = Auth::user();
-        $tickets = Tracking::where('ticket_status', 'complete')->orderBy('created_at', 'desc')->get();
+        $tickets = Tracking::where('ticket_status', 'complete')->orWhere('ticket_status', 'refunded')->orderBy('created_at', 'desc')->get();
         return view('history', compact('user', 'tickets'));
     }
 
@@ -97,22 +101,48 @@ class HomeController extends Controller
             $ticket_id = 'valet3_ticket_id';
             $ticket_serial_number = 'valet3_ticket_serial_number';
         }
-        $lastRecord = Tracking::latest($ticket_id)->where('ticket_status', 'active')->first();
-        //return $lastRecord->valet1_ticket_id;
-        if($lastRecord->$ticket_id === '' && $lastRecord->$ticket_serial_number === ''){
+        //return $ticket_id;
+        $lastRecord = Tracking::latest()->where($ticket_id, '!=', '')->first();//->where('ticket_status', '=', 'active')
+            //->orWhere('ticket_status', '=', 'complete')->first();
+
+        //return $lastRecord;
+        $created_at = "";
+        if($lastRecord!=""){
+            $created_at = $lastRecord->updated_at;
+        }
+        //return $created_at;
+        if($lastRecord==""){
             $ticket_number = Auth::user()->ticket_number;
             $ticket_serial_number = Auth::user()->ticket_serial_number;
             return view('create', compact('ticket_number', 'ticket_serial_number', 'booked_in_by'));
         }
+        $user_created_at = Auth::user()->updated_at;
+        //dd ($created_at->gt($user_created_at));
+        //$ticket_number = (int)$lastRecord->$ticket_id;
+        //$ticket_number = $lastRecord;
+        //return $ticket_number;
+        //return $user_created_at . ' ' . $created_at;
+        //USE USER TICKET No
+        if($user_created_at->gt($created_at)){
+            $ticket_number = Auth::user()->ticket_number;
+            $ticket_serial_number = Auth::user()->ticket_serial_number;
+            return view('create', compact('ticket_number', 'ticket_serial_number', 'booked_in_by'));
+        }
+
+
+
         $ticket_serial_number = (int)$lastRecord->$ticket_serial_number;
         $ticket_serial_number = $ticket_serial_number + 1;
         //find last ticket number in all 3 ticket id's
-        //$ticket_number = (int)$lastRecord->$ticket_id;
-        $ticket_number = Auth::user()->ticket_number;
+        $ticket_number = (int)$lastRecord->$ticket_id;
+        //return $lastRecord;
+        $ticket_number = sprintf('%03d', (int)$ticket_number + 1);
+        //$ticket_number = Auth::user()->ticket_number;
         $truelast_record = Tracking::latest('id')->where('ticket_status', 'active')->orWhere('ticket_status', 'complete')->first();
-        if($truelast_record->valet1_ticket_id==$ticket_number || $truelast_record->valet2_ticket_id==$ticket_number || $truelast_record->valet3_ticket_id==$ticket_number){
-            $ticket_number = sprintf('%03d', (int)$ticket_number + 1);
-        }
+        // USE LAST TICKET NO PLUS 1
+//        if($lastRecord->$ticket_id==$ticket_number){
+//            $ticket_number = sprintf('%03d', (int)$ticket_number + 1);
+//        }
         if($ticket_number==='121')
         {
             $ticket_number = '001';

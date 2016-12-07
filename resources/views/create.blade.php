@@ -26,10 +26,12 @@
                             <div class="form-group">
                                 @if (session('ticket_number'))
                                     <input value="{{ session('ticket_number') }}"
-                                           name="ticket_number" type="text" class="form-control" id="ticket_number" placeholder="Ticket Number">
+                                           name="ticket_number" type="text" class="form-control" id="ticket_number" placeholder="Ticket Number"
+                                    readonly>
                                 @else
                                     <input value="<?php echo empty($ticket_number) ? "" : $ticket_number; ?>"
-                                       name="ticket_number" type="text" class="form-control" id="ticket_number" placeholder="Ticket Number">
+                                       name="ticket_number" type="text" class="form-control" id="ticket_number" placeholder="Ticket Number"
+                                    readonly>
                                 @endif
                             </div>
                             <div class="form-group">

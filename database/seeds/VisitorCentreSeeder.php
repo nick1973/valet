@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
 
 class VisitorCentreSeeder extends Seeder
 {
@@ -12,6 +13,10 @@ class VisitorCentreSeeder extends Seeder
     public function run()
     {
         DB::table('users')->insert([
+            ['name' => 'manager',
+                'email' => 'manager@ctm.uk.com',
+                'password' => bcrypt('Manager'),
+            ],
             ['name' => 'bvfinance',
                 'email' => 'bvfinance@ctm.uk.com',
                 'password' => bcrypt('BVfinance'),

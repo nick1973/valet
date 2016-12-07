@@ -70,22 +70,30 @@
                                     <td id="totalCardIncome">0</td>
                                 </tr>
 
-                                <tr>
-                                    <td>£20</td>
-                                    <td>Not Paid</td>
-                                    <td id="notPaid">0</td>
+                                {{--<tr>--}}
+                                    {{--<td>£20</td>--}}
+                                    {{--<td>Not Paid</td>--}}
+                                    {{--<td id="notPaid">0</td>--}}
                                     {{--@if(Auth::user()->name=='ctmfinance')--}}
-                                        <th class="col-lg-1"><input name="actual_not_paid" onkeyup="actual()" id="actualNotPaid" class="form-control text-center" placeholder="TBA"></th>
+                                        {{--<th class="col-lg-1"><input name="actual_not_paid" onkeyup="actual()" id="actualNotPaid" class="form-control text-center" placeholder="TBA"></th>--}}
                                     {{--@endif--}}
-                                </tr>
+                                    {{--<td>-</td>--}}
+                                    {{--<td>-</td>--}}
+                                    {{--<td>-</td>--}}
+                                    {{--<td>-</td>--}}
+                                {{--</tr>--}}
 
                                 <tr>
-                                    <td></td>
+                                    <td>-</td>
                                     <td><div class="pull-right"><b>Subtotal</b></div></td>
                                     <td class="subtotalCarCount">0</td>
                                     {{--@if(Auth::user()->name=='ctmfinance')--}}
                                         <th id="actualSubtotalCarCount">0</th>
                                     {{--@endif--}}
+                                    <td>-</td>
+                                    <td>-</td>
+                                    <td>-</td>
+                                    <td>-</td>
                                 </tr>
 
                                 <tr>
@@ -95,16 +103,20 @@
                                     {{--@if(Auth::user()->name=='ctmfinance')--}}
                                         <th class="col-lg-1"><input name="actual_vip" onkeyup="actual()" id="actualVIP" class="form-control text-center" placeholder="TBC"></th>
                                     {{--@endif--}}
+                                    <td>-</td>
+                                    <td>-</td>
+                                    <td>-</td>
+                                    <td>-</td>
                                 </tr>
                                 <tfoot style="font-weight: bold">
-                                    <td></td>
+                                    <td>-</td>
                                     <td><div class="pull-right"><b>TOTAL</b></div></td>
                                     <td id="carCount">0</td>
 {{--                                    @if(Auth::user()->name=='ctmfinance')--}}
                                         <th id="actualTotal">0</th>
                                     {{--@endif--}}
                                     <td id="totalRevenue">0</td>
-                                    <td></td>
+                                    <td>-</td>
                                     <td class="trxFee">0</td>
                                     <td id="grandTotal">0</td>
                                 </tfoot>
@@ -133,11 +145,69 @@
                                 @endif
                             </div>
                         </div>
+
+                        {{--<div style="color: white" class="form-group col-md-4 col-lg-4">--}}
+                            {{--<h4>Please choose a start date</h4>--}}
+                            {{--<div class="date">Start--}}
+                                {{--<input  name="date_timepicker_start" class="form-control" id="date_timepicker_start" type="text" >--}}
+                            {{--</div>--}}
+                        {{--</div>--}}
+                        {{--<div style="color: white" class="form-group col-md-4 col-lg-4">--}}
+                            {{--<h4>Please choose a end date</h4>--}}
+                            {{--<div class="date">--}}
+                                {{--Finish--}}
+                                {{--<input  name="date_timepicker_end" class="form-control" id="date_timepicker_end" type="text" >--}}
+                            {{--</div>--}}
+                        {{--</div>--}}
+                        {{--<div style="color: white" class="form-group col-md-4 col-lg-4">--}}
+                            {{--<h4>Pl</h4>--}}
+                            {{--<div class="date">--}}
+                                {{--Get--}}
+                                {{--<input id="getDates" type="button" class="btn btn-default" value="get">--}}
+                            {{--</div>--}}
+                        {{--</div>--}}
+
+
                         <div class="text-center" id="page-selection" style="color: white"></div>
                         <div class="text-center" style="color: white">
                             <h4>Please choose a week</h4>
                         </div>
                         <script>
+
+                            jQuery(function(){
+                                jQuery('#date_timepicker_start').datetimepicker({
+                                    theme:'dark',
+                                    format:'d/m/Y',
+                                    onShow:function( ct ){
+                                        this.setOptions({
+                                            maxDate:jQuery('#date_timepicker_end').val()?jQuery('#date_timepicker_end').val():false
+                                            //console.log(maxDate)
+                                        })
+                                    },
+                                    timepicker:false
+                                });
+
+                                jQuery('#date_timepicker_end').datetimepicker({
+                                    theme:'dark',
+                                    format:'d/m/Y',
+                                    onShow:function( ct ){
+                                        this.setOptions({
+                                            minDate:jQuery('#date_timepicker_start').val()?jQuery('#date_timepicker_start').val():false
+                                        })
+                                    },
+                                    timepicker:false
+                                });
+
+                                $('#getDates').on('click', function () {
+                                    var start = $('#date_timepicker_start').datetimepicker('getValue');
+                                    var end = $('#date_timepicker_end').datetimepicker('getValue');
+                                    var start_date = start.getDate()+'/'+ (start.getMonth()+1) +'/'+ start.getFullYear()
+                                    var end_date = end.getDate()+'/'+ (end.getMonth()+1) +'/'+ end.getFullYear()
+                                    console.log(start_date);
+                                    console.log(end_date);
+                                });
+                            });
+
                             function actual() {
                                 var total = null;
                                 var subTotal = null;
@@ -249,6 +319,7 @@
                                 var curr_date = d.getDate();
                                 var curr_month = d.getMonth() + 1; //Months are zero based
                                 var curr_year = d.getFullYear();
+                                console.log(curr_date+'/'+curr_month+'/'+curr_year)
 
                                 $.post("/reports/weekly-report",
                                         {
