@@ -3,7 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="6b744dbd-97fa-4c54-bce4-2aa47f00a0c3" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/routes.php" afterPath="$PROJECT_DIR$/app/Http/routes.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/reports/weekly_report.blade.php" afterPath="$PROJECT_DIR$/resources/views/reports/weekly_report.blade.php" />
     </list>
     <ignored path="valet.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -46,11 +46,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="weekly_report.blade.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="weekly_report.blade.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/resources/views/reports/weekly_report.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="372">
-              <caret line="330" column="42" selection-start-line="330" selection-start-column="42" selection-end-line="330" selection-end-column="42" />
+            <state relative-caret-position="286">
+              <caret line="355" column="64" selection-start-line="355" selection-start-column="48" selection-end-line="355" selection-end-column="64" />
               <folding>
                 <element signature="e#9953#9973#0#HTML" expanded="true" />
                 <element signature="e#10030#10050#0#HTML" expanded="true" />
@@ -59,11 +59,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="routes.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="routes.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Http/routes.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="379">
-              <caret line="67" column="39" selection-start-line="67" selection-start-column="39" selection-end-line="67" selection-end-column="39" />
+            <state relative-caret-position="503">
+              <caret line="71" column="0" selection-start-line="71" selection-start-column="0" selection-end-line="71" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -162,7 +162,6 @@
         <option value="$PROJECT_DIR$/resources/views/home.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/ticket.blade.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/UserController.php" />
-        <option value="$PROJECT_DIR$/resources/views/reports/weekly_report.blade.php" />
         <option value="$PROJECT_DIR$/database/migrations/2016_09_02_091517_Update_Ticket_Table.php" />
         <option value="$PROJECT_DIR$/app/Tracking.php" />
         <option value="$PROJECT_DIR$/resources/views/edit.blade.php" />
@@ -175,6 +174,7 @@
         <option value="$PROJECT_DIR$/resources/views/create.blade.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" />
         <option value="$PROJECT_DIR$/app/Http/routes.php" />
+        <option value="$PROJECT_DIR$/resources/views/reports/weekly_report.blade.php" />
       </list>
     </option>
   </component>
@@ -515,14 +515,7 @@
       <workItem from="1480095041349" duration="1159000" />
       <workItem from="1481103346098" duration="923000" />
       <workItem from="1484045131750" duration="597000" />
-      <workItem from="1488799069302" duration="2576000" />
-    </task>
-    <task id="LOCAL-00004" summary="CTMVALET">
-      <created>1470841081823</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1470841081823</updated>
+      <workItem from="1488799069302" duration="2867000" />
     </task>
     <task id="LOCAL-00005" summary="CTMVALET">
       <created>1470841222535</created>
@@ -860,11 +853,18 @@
       <option name="project" value="LOCAL" />
       <updated>1481103902081</updated>
     </task>
-    <option name="localTasksCounter" value="53" />
+    <task id="LOCAL-00053" summary="bug fix's v0.3">
+      <created>1489070593225</created>
+      <option name="number" value="00053" />
+      <option name="presentableId" value="LOCAL-00053" />
+      <option name="project" value="LOCAL" />
+      <updated>1489070593225</updated>
+    </task>
+    <option name="localTasksCounter" value="54" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="393032000" />
+    <option name="totallyTimeSpent" value="393323000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -1256,22 +1256,22 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/routes.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="503">
+          <caret line="71" column="0" selection-start-line="71" selection-start-column="0" selection-end-line="71" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/reports/weekly_report.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="372">
-          <caret line="330" column="42" selection-start-line="330" selection-start-column="42" selection-end-line="330" selection-end-column="42" />
+        <state relative-caret-position="286">
+          <caret line="355" column="64" selection-start-line="355" selection-start-column="48" selection-end-line="355" selection-end-column="64" />
           <folding>
             <element signature="e#9953#9973#0#HTML" expanded="true" />
             <element signature="e#10030#10050#0#HTML" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/routes.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="379">
-          <caret line="67" column="39" selection-start-line="67" selection-start-column="39" selection-end-line="67" selection-end-column="39" />
-          <folding />
         </state>
       </provider>
     </entry>

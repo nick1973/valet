@@ -353,7 +353,7 @@
 
                                             var totalRev = (result.card * 20) + (result.cash * 20);
                                             $('#totalRevenue').html(totalRev.toFixed(2));
-                                            $('.subtotalCarCount').html(result.card  + result.cash +  result.not_paid);
+                                            $('.subtotalCarCount').html(result.card  + result.cash);
                                             var tax = result.card * 20 * 2.75 / 100;
                                             $('.trxFee').html(tax.toFixed(2));
                                             $('#originaltrxFee').val(tax.toFixed(2));
