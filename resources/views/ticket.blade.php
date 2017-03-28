@@ -44,17 +44,17 @@
                                     <select name="booked_in_by" class="form-control" id="ticket_price">
                                         <option selected>{{ old('booked_in_by') }}</option>
                                         <option>Amy Hamilton</option>
-                                        <option>Arnoldo Mota</option>
-                                        <option>Brian Duggan</option>
+                                        <option>Bruno Cruz</option>
+                                        <option>Mihaela Erdei</option>
                                         <option>Dave Duggan</option>
-                                        <option>Ellie Porterfield</option>
+                                        <option>Oliver McLean</option>
                                         <option>Fabio Barata</option>
                                         <option>Ivo Correia</option>
                                         <option>John Harris</option>
-                                        <option>Joshua Little</option>
+                                        <option>David Terra</option>
                                         <option>Nelson Fonseca</option>
-                                        <option>Robert Jones</option>
-                                        <option>Rui Jesus</option>
+                                        <option>Fabio Jesus</option>
+                                        {{--<option></option>--}}
                                     </select>
                                 </div>
                             </div>
