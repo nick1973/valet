@@ -1,10 +1,10 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="container col-lg-12">
+    {{--<div class="container col-lg-12">--}}
 
-        <div class="row">
-            <div class="col-md-12 col-lg-12 col-md-offset-1 col-lg-offset-0">
+        {{--<div class="row">--}}
+            {{--<div class="col-md-12 col-lg-12 col-md-offset-1 col-lg-offset-0">--}}
                 <div class="panel panel-success">
                     <div class="panel-heading">Reports</div>
                     <div class="panel-body" style="background: #EEEEEE">
@@ -59,9 +59,9 @@
                         </table>
                     </div>
                 </div>
-            </div>
-        </div>
-    </div>
+            {{--</div>--}}
+        {{--</div>--}}
+    {{--</div>--}}
 
 <script>
 
