@@ -5,9 +5,9 @@
 
         {{--<div class="row">--}}
             {{--<div class="col-md-12 col-lg-12 col-md-offset-1 col-lg-offset-0">--}}
-                <div class="panel panel-success">
-                    <div class="panel-heading">Reports</div>
-                    <div class="panel-body" style="background: #EEEEEE">
+                {{--<div class="panel panel-success">--}}
+                    {{--<div class="panel-heading">Reports</div>--}}
+                    {{--<div class="panel-body" style="background: #EEEEEE">--}}
                         <table id="reports" class="stripe table-responsive" cellspacing="0" width="">
                             <thead>
                             <tr>
@@ -58,8 +58,8 @@
                             </tr>
                             </tfoot>
                         </table>
-                    </div>
-                </div>
+                    {{--</div>--}}
+                {{--</div>--}}
             {{--</div>--}}
         {{--</div>--}}
     {{--</div>--}}
