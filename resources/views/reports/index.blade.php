@@ -26,6 +26,7 @@
                                 <th class="text-center">Manufacturer</th>
                                 <th class="text-center">Model</th>
                                 <th class="text-center">Colour</th>
+                                <th class="text-center">Notes</th>
                                 <th class="text-center">Mobile</th>
                                 <th class="text-center">Notes</th>
                                 <th class="text-center">Mobile</th>
@@ -105,11 +106,11 @@
                 { "data": "valet3_ticket_serial_number" , className: "centre" },
 
                 { "data": "ticket_name" , className: "centre" },
-                { "data": "ticket_registration" , className: "centandcaps" },
-                { "data": "ticket_manufacturer" , className: "centandcaps" },
-                { "data": "ticket_model" , className: "centandcaps" },
-                { "data": "ticket_colour" , className: "centandcaps" },
-                { "data": "ticket_notes" , className: "centandcaps" },
+                { "data": "ticket_registration" , className: "centre" },
+                { "data": "ticket_manufacturer" , className: "centre" },
+                { "data": "ticket_model" , className: "centre" },
+                { "data": "ticket_colour" , className: "centre" },
+                { "data": "ticket_notes" , className: "centre" },
                 { "data": "ticket_mobile" , className: "centre" },
                 { "data": "booked_in_by" , className: "centre" },
                 { "data": "ticket_driver" , className: "centre" },
