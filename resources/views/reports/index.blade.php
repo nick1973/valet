@@ -23,12 +23,18 @@
 
                                 <th class="text-center">Name</th>
                                 <th class="text-center">Reg</th>
+                                <th class="text-center">Manufacturer</th>
+                                <th class="text-center">Model</th>
+                                <th class="text-center">Colour</th>
                                 <th class="text-center">Mobile</th>
-                                <th class="text-center">Booked in By</th>
+                                <th class="text-center">Notes</th>
+                                <th class="text-center">Mobile</th>
+                                <th class="text-center">Booked in by</th>
                                 <th class="text-center">Driver</th>
                                 <th class="text-center">Price</th>
                                 <th class="text-center">Payment</th>
                                 <th class="text-center">Status</th>
+                                <th class="text-center">Key Safe</th>
                                 <th class="text-center">Created At</th>
                                 <th class="text-center">Updated At</th>
                             </tr>
@@ -41,6 +47,10 @@
                                 <td width="130"></td>
                                 <td width="130"></td>
                                 <td width="130"></td>
+                                <td width="80"></td>
+                                <td width="80"></td>
+                                <td width="80"></td>
+                                <td width="80"></td>
                                 <td width="80"></td>
                                 <td width="130"></td>
                                 <td width="120"></td>
@@ -96,12 +106,18 @@
 
                 { "data": "ticket_name" , className: "centre" },
                 { "data": "ticket_registration" , className: "centandcaps" },
+                { "data": "ticket_manufacturer" , className: "centandcaps" },
+                { "data": "ticket_model" , className: "centandcaps" },
+                { "data": "ticket_colour" , className: "centandcaps" },
+                { "data": "ticket_notes" , className: "centandcaps" },
                 { "data": "ticket_mobile" , className: "centre" },
                 { "data": "booked_in_by" , className: "centre" },
                 { "data": "ticket_driver" , className: "centre" },
                 { "data": "ticket_price" , className: "centre" },
                 { "data": "ticket_payment" , className: "centre" },
                 { "data": "ticket_status" , className: "centre" },
+                { "data": "ticket_key_safe" , className: "centre" },
+                { "data": "ticket_driver" , className: "centre" },
                 { "data": "created_at" , className: "centre" },
                 { "data": "updated_at" , className: "centre" },
             ]
