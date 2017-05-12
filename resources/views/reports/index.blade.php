@@ -8,7 +8,7 @@
                 <div class="panel panel-success">
                     <div class="panel-heading">Reports</div>
                     <div class="panel-body" style="background: #EEEEEE">
-                        <table id="reports" class="stripe table-responsive" cellspacing="0" width="100%">
+                        <table id="reports" class="stripe table-responsive" cellspacing="0" width="">
                             <thead>
                             <tr>
                                 <th class="text-center">Ticket No</th>
