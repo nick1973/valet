@@ -8,6 +8,11 @@
                 {{--<div class="panel panel-success">--}}
                     {{--<div class="panel-heading">Reports</div>--}}
                     {{--<div class="panel-body" style="background: #EEEEEE">--}}
+    <style>
+        th{
+            color: #ffffff;
+        }
+    </style>
                         <table id="reports" class="stripe table-responsive" cellspacing="0" width="">
                             <thead>
                             <tr>
