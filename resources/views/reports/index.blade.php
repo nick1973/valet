@@ -33,8 +33,6 @@
                                 <th class="text-center">Colour</th>
                                 <th class="text-center">Notes</th>
                                 <th class="text-center">Mobile</th>
-                                <th class="text-center">Notes</th>
-                                <th class="text-center">Mobile</th>
                                 <th class="text-center">Booked in by</th>
                                 <th class="text-center">Driver</th>
                                 <th class="text-center">Price</th>
