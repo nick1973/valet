@@ -121,7 +121,6 @@
                 { "data": "ticket_payment" , className: "centre" },
                 { "data": "ticket_status" , className: "centre" },
                 { "data": "ticket_key_safe" , className: "centre" },
-                { "data": "ticket_driver" , className: "centre" },
                 { "data": "created_at" , className: "centre" },
                 { "data": "updated_at" , className: "centre" },
             ]
