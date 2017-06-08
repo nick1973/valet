@@ -17,14 +17,24 @@
                             </tr>
                             </thead>
                             <tr>
+                                <td>£25-Card</td>
+                                <td>{{ $card25 }}</td>
+                                <td>{{ $card25 * 25 }}</td>
+                            </tr>
+                            <tr>
+                                <td>£25-Cash</td>
+                                <td>{{ $cash25 }}</td>
+                                <td>{{ $cash25 * 25 }}</td>
+                            </tr>
+                            <tr>
                                 <td>£20-Card</td>
-                                <td>{{ $card }}</td>
-                                <td>{{ $card * 20 }}</td>
+                                <td>{{ $card20 }}</td>
+                                <td>{{ $card20 * 20 }}</td>
                             </tr>
                             <tr>
                                 <td>£20-Cash</td>
-                                <td>{{ $cash }}</td>
-                                <td>{{ $cash * 20 }}</td>
+                                <td>{{ $cash20 }}</td>
+                                <td>{{ $cash20 * 20 }}</td>
                             </tr>
                             <tr>
                                 <td>£20 (Not Paid)</td>
@@ -39,7 +49,7 @@
                             <tr>
                                 <td>Total</td>
                                 <td>{{ $car_count }}</td>
-                                <td>{{ ($card * 20) + ($cash * 20) }}</td>
+                                <td>{{ ($card20 * 20) + ($cash20 * 20) }}</td>
                             </tr>
                         </table>
                     </div>

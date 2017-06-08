@@ -57,11 +57,13 @@ class ReportsController extends Controller
 
     public function carCount()
     {
-        $card = Tracking::where('ticket_payment','Card Payment')->whereRaw('Date(created_at) = CURDATE()')->count();
-        $cash = Tracking::where('ticket_payment','Cash Payment')->whereRaw('Date(created_at) = CURDATE()')->count();
+        $card20 = Tracking::where('ticket_payment','Card Payment')->where('ticket_price','£20')->whereRaw('Date(created_at) = CURDATE()')->count();
+        $cash20 = Tracking::where('ticket_payment','Cash Payment')->where('ticket_price','£20')->whereRaw('Date(created_at) = CURDATE()')->count();
+        $card25 = Tracking::where('ticket_payment','Card Payment')->where('ticket_price','£25')->whereRaw('Date(created_at) = CURDATE()')->count();
+        $cash25 = Tracking::where('ticket_payment','Cash Payment')->where('ticket_price','£25')->whereRaw('Date(created_at) = CURDATE()')->count();
         $not_paid = Tracking::where('ticket_payment','Not Paid')->whereRaw('Date(created_at) = CURDATE()')->count();//AND
         $vip = Tracking::where('ticket_price','VIP-FREE')->whereRaw('Date(created_at) = CURDATE()')->count();//AND NOT PAID
         $car_count = Tracking::whereRaw('Date(created_at) = CURDATE()')->whereNotIn('ticket_status',['deleted'])->count();//NOT DELETED ONES
-        return view('reports.car_count', compact('card', 'cash', 'not_paid', 'vip', 'car_count'));
+        return view('reports.car_count', compact('card20', 'cash20', 'card25', 'cash25', 'not_paid', 'vip', 'car_count'));
     }
 }
