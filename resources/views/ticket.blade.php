@@ -34,7 +34,7 @@
                                 <label style="color: white" for="password" class="col-md-4 control-label">Start Ticket Serial Number</label>
 
                                 <div class="col-md-6">
-                                    <input disabled id="" type="text" class="form-control" name="ticket_serial_number" value="{{ old('ticket_serial_number') }}">
+                                    <input id="" type="text" class="form-control" name="ticket_serial_number" value="{{ old('ticket_serial_number') }}">
                                 </div>
                             </div>
 
